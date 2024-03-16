@@ -16,4 +16,9 @@ class HomeController extends Controller
     {
         return view('frontend.detail');
     }
+
+    public function book()
+    {
+        return view('frontend.book');
+    }
 }
