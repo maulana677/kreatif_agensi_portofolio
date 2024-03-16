@@ -16,11 +16,12 @@
 
 <body class="text-portto-black font-poppins">
 
-    @include('frontend.layouts.header')
+
+
 
     @yield('content')
 
-    @include('frontend.layouts.footer')
+
 
     @stack('before-script')
     <script src="https://cdn.tailwindcss.com"></script>

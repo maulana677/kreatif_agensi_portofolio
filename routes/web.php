@@ -17,6 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 /** Frontend Routes */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/details', [HomeController::class, 'details'])->name('details');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
