@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
@@ -35,6 +36,9 @@ require __DIR__ . '/auth.php';
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+    /** Project Category Route */
+    Route::resource('projects-category', ProjectCategoryController::class);
 
     /** Project Route */
     Route::resource('projects', ProjectController::class);

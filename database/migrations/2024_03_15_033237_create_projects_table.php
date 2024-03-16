@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('slug')->unique();
             $table->string('cover');
             $table->text('about');
-            $table->string('category');
+            $table->foreignId('projectCategory_id')->constrained('project_categories')->onDelete('cascade');
             $table->softDeletes();
             $table->timestamps();
         });

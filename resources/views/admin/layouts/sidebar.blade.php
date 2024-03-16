@@ -54,20 +54,33 @@
 
             <li class="menu-header">Starter</li>
 
-            <li class="dropdown">
-                <a class="nav-link" href=""><i class="fas fa-images"></i>
+            {{--  <li class="dropdown">
+                <a class="nav-link" href="{{ route('admin.projects.index') }}"><i class="fas fa-stream"></i>
                     <span>Projects</span>
                 </a>
+            </li>  --}}
+
+            <li class="dropdown">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
+                    <span>Projects</span></a>
+                <ul class="dropdown-menu">
+                    <li class=""><a class="nav-link" href="{{ route('admin.projects-category.index') }}">Project
+                            Category</a>
+                    </li>
+                    <li class="">
+                        <a class="nav-link" href="{{ route('admin.projects.index') }}">Project</a>
+                    </li>
+                </ul>
             </li>
 
             <li class="dropdown">
-                <a class="nav-link" href=""><i class="fas fa-images"></i>
+                <a class="nav-link" href=""><i class="fas fa-stream"></i>
                     <span>Tools</span>
                 </a>
             </li>
 
             <li class="dropdown">
-                <a class="nav-link" href=""><i class="fas fa-images"></i>
+                <a class="nav-link" href=""><i class="fas fa-stream"></i>
                     <span>Orders</span>
                 </a>
             </li>

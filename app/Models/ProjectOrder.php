@@ -13,4 +13,9 @@ class ProjectOrder extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function projectCategory()
+    {
+        return $this->belongsTo(ProjectCategory::class);
+    }
 }
