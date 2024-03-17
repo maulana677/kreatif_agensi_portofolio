@@ -35,7 +35,9 @@
                                             <th class="text-left">
                                                 #
                                             </th>
-                                            <th>Title</th>
+                                            <th>Cover</th>
+                                            <th>Name</th>
+                                            <th>Category</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -43,13 +45,23 @@
                                         @foreach ($projects as $item)
                                             <tr>
                                                 <td>{{ ++$loop->index }}</td>
-                                                <td>{{ $item->title }}</td>
                                                 <td>
+                                                    <img src="{{ asset($item->cover) }}" width="100" alt="">
+                                                </td>
+                                                <td>{{ $item->name }}</td>
+                                                <td>{{ $item->projectCategory->name }}</td>
+                                                <td>
+                                                    <a href="" class="btn btn-primary">
+                                                        <i class="fas fa-plus"> </i> Add Tools
+                                                    </a>
+                                                    <a href="" class="btn btn-primary">
+                                                        <i class="fas fa-edit"></i> Add Screenshots
+                                                    </a>
                                                     <a href="{{ route('admin.projects.edit', $item->id) }}"
-                                                        class="btn btn-primary"><i class="fas fa-edit"></i></a>
+                                                        class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
                                                     <a href="{{ route('admin.projects.destroy', $item->id) }}"
-                                                        class="btn btn-danger delete-item"><i
-                                                            class="fas fa-trash-alt"></i></a>
+                                                        class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i>
+                                                        Hapus</a>
                                                 </td>
                                             </tr>
                                         @endforeach

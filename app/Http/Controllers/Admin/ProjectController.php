@@ -6,6 +6,9 @@ use App\Http\Controllers\Controller;
 use App\Models\Project;
 use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
+use Alert;
 
 class ProjectController extends Controller
 {
@@ -24,16 +27,24 @@ class ProjectController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required', 'max:200']
+            'name' => ['required', 'max:200'],
+            'projectCategory_id' => ['required', 'numeric'],
+            'cover' => ['required', 'image', 'max:5000'],
+            'about' => ['required', 'max:6553'],
         ]);
 
-        $create = new TyperTitle();
-        $create->title = $request->title;
-        $create->save();
+        $imagePath = handleUpload('cover');
 
-        session()->flash("success", "Data Created Successfully");
+        $project = new Project();
+        $project->cover = $imagePath;
+        $project->name = $request->name;
+        $project->slug = Str::slug($request->name);
+        $project->about = $request->about;
+        $project->projectCategory_id = $request->projectCategory_id;
+        $project->save();
 
-        return redirect()->route('admin.typer-title.index');
+        toastr()->success('Project Created Successfully!');
+        return redirect()->route('admin.projects.index');
     }
 
     public function show($id)
@@ -43,28 +54,40 @@ class ProjectController extends Controller
 
     public function edit($id)
     {
-        $title = TyperTitle::findOrFail($id);
-        return view('admin.typer-title.edit', compact('title'));
+        $projectsCategories = ProjectCategory::all();
+        $project = Project::findOrFail($id);
+        return view('admin.projects.edit', compact('projectsCategories', 'project'));
     }
 
     public function update(Request $request, $id)
     {
         $request->validate([
-            'title' => ['required', 'max:200']
+            'name' => ['required', 'max:200'],
+            'projectCategory_id' => ['required', 'numeric'],
+            'cover' => ['image', 'max:5000'],
+            'about' => ['required', 'max:6553'],
         ]);
 
-        $edit = TyperTitle::findOrFail($id);
-        $edit->title = $request->title;
-        $edit->save();
+        $project = Project::findOrFail($id);
+        $imagePath = handleUpload('cover', $project);
 
-        session()->flash("success", "Data Updated Successfully");
+        $project->cover = (!empty($imagePath) ? $imagePath : $project->cover);
+        $project->name = $request->name;
+        $project->slug = Str::slug($request->name);
+        $project->about = $request->about;
+        $project->projectCategory_id = $request->projectCategory_id;
+        $project->save();
 
-        return redirect()->route('admin.typer-title.index');
+        toastr()->success('Project Updated Successfully!');
+        return redirect()->route('admin.projects.index');
     }
 
     public function destroy($id)
     {
-        $title = TyperTitle::findOrFail($id);
-        $title->delete();
+        $project = Project::findOrFail($id);
+        deleteFileIfExist($project->cover);
+        $project->delete();
+
+        toastr()->success('Project Deleted Successfully!');
     }
 }

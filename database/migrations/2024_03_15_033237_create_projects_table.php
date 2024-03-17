@@ -18,7 +18,6 @@ return new class extends Migration
             $table->string('cover');
             $table->text('about');
             $table->foreignId('projectCategory_id')->constrained('project_categories')->onDelete('cascade');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

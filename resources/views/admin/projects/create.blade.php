@@ -36,7 +36,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Category</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <select class="form-control selectric" name="category_id">
+                                        <select class="form-control selectric" name="projectCategory_id">
                                             <option>Select</option>
                                             @foreach ($projectsCategories as $category)
                                                 <option value="{{ $category->id }}">{{ $category->name }}</option>
@@ -58,7 +58,7 @@
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">About</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <textarea name="about" id="about" class="summernote"></textarea>
+                                        <textarea name="about" id="about" cols="100" rows="5"></textarea>
                                     </div>
                                 </div>
 

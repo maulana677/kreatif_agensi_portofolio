@@ -73,7 +73,9 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap4.min.js"></script>
 
+    @include('sweetalert::alert')
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <script src="{{ asset('admin/assets/modules/select2/dist/js/select2.full.min.js') }}"></script>
     <script src="{{ asset('admin/assets/modules/summernote/summernote-bs4.js') }}"></script>
 
@@ -83,11 +85,9 @@
 
     <!-- show dynamic validation message-->
     <script>
-        toastr.options.progressBar = true;
-
-        @if ($errors->any())
+        @if (!empty($errors->all()))
             @foreach ($errors->all() as $error)
-                toastr.error("{{ $error }}")
+                toastr.error("{{ $error }}", )
             @endforeach
         @endif
     </script>
@@ -103,12 +103,29 @@
             success_callback: null // Default: null
         });
 
+        // Csrf token
+        $.ajaxSetup({
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            }
+        });
+
+        const Toast = Swal.mixin({
+            toast: true,
+            position: 'top-end',
+            showConfirmButton: false,
+            timer: 3000,
+            timerProgressBar: true,
+            didOpen: (toast) => {
+                toast.addEventListener('mouseenter', Swal.stopTimer)
+                toast.addEventListener('mouseleave', Swal.resumeTimer)
+            }
+        })
+
+        // sweet alert for delete
         $(document).ready(function() {
-
             $('body').on('click', '.delete-item', function(e) {
-                e.preventDefault()
-
-                let url = $(this).attr('href');
+                e.preventDefault();
 
                 Swal.fire({
                     title: 'Are you sure?',
@@ -120,33 +137,37 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.isConfirmed) {
-
+                        let url = $(this).attr('href');
+                        console.log(url);
                         $.ajax({
                             method: 'DELETE',
                             url: url,
-                            data: {
-                                _token: "{{ csrf_token() }}"
-                            },
-                            success: function(response) {
-                                if (response.status === 'success') {
-                                    toastr.success(response.message)
-
+                            success: function(data) {
+                                if (data.status == 'error') {
+                                    Swal.fire(
+                                        'You can not delete!',
+                                        'This category contain items cant be deleted!',
+                                        'error'
+                                    )
+                                } else {
+                                    Swal.fire(
+                                        'Deleted!',
+                                        'Your file has been deleted.',
+                                        'success'
+                                    )
                                     window.location.reload();
-
-                                } else if (response.status === 'error') {
-                                    toastr.error(response.message)
                                 }
                             },
-                            error: function(error) {
-                                console.error(error);
+                            error: function(xhr, status, error) {
+                                console.log(error);
                             }
                         })
                     }
                 })
             })
-
         })
     </script>
+
 
     @stack('scripts')
 </body>

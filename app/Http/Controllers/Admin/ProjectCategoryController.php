@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProjectCategoryController extends Controller
 {
@@ -36,7 +37,7 @@ class ProjectCategoryController extends Controller
 
         $category = new ProjectCategory();
         $category->name = $request->name;
-        $category->slug = \Str::slug($request->name);
+        $category->slug = Str::slug($request->name);
         $category->save();
 
         toastr()->success('Data Successfully Created');
