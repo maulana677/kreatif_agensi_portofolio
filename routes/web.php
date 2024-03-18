@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ToolController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +43,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** Project Route */
     Route::resource('projects', ProjectController::class);
+
+    /** Tools Route */
+    Route::resource('tools', ToolController::class);
 });

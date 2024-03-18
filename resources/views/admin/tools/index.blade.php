@@ -3,16 +3,16 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Project</h1>
+            <h1>Tools</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Posts</a></div>
-                <div class="breadcrumb-item">Project</div>
+                <div class="breadcrumb-item">Tools</div>
             </div>
         </div>
 
         <div class="section-body">
-            <h2 class="section-title">Project</h2>
+            <h2 class="section-title">Tools</h2>
             <p class="section-lead">
                 On this page you can see all the data.
             </p>
@@ -21,9 +21,9 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4>All Project</h4>
+                            <h4>All Tools</h4>
                             <div class="card-header-action">
-                                <a href="{{ route('admin.projects.create') }}" class="btn btn-success">Create New <i
+                                <a href="{{ route('admin.tools.create') }}" class="btn btn-success">Create New <i
                                         class="fas fa-plus"></i></a>
                             </div>
                         </div>
@@ -35,32 +35,26 @@
                                             <th class="text-left">
                                                 #
                                             </th>
-                                            <th>Cover</th>
+                                            <th>Logo</th>
                                             <th>Name</th>
-                                            <th>Category</th>
+                                            <th>Tagline</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach ($projects as $item)
+                                        @foreach ($tools as $item)
                                             <tr>
                                                 <td>{{ ++$loop->index }}</td>
                                                 <td>
-                                                    <img src="{{ asset($item->cover) }}" width="200" alt=""
+                                                    <img src="{{ asset($item->logo) }}" width="100" alt=""
                                                         class="img-thumbnail">
                                                 </td>
                                                 <td>{{ $item->name }}</td>
-                                                <td>{{ $item->projectCategory->name }}</td>
+                                                <td>{{ $item->tagline }}</td>
                                                 <td>
-                                                    <a href="" class="btn btn-primary">
-                                                        <i class="fas fa-plus"> </i> Add Tools
-                                                    </a>
-                                                    <a href="" class="btn btn-primary">
-                                                        <i class="fas fa-edit"></i> Add Screenshots
-                                                    </a>
-                                                    <a href="{{ route('admin.projects.edit', $item->id) }}"
+                                                    <a href="{{ route('admin.tools.edit', $item->id) }}"
                                                         class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>
-                                                    <a href="{{ route('admin.projects.destroy', $item->id) }}"
+                                                    <a href="{{ route('admin.tools.destroy', $item->id) }}"
                                                         class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i>
                                                         Hapus</a>
                                                 </td>

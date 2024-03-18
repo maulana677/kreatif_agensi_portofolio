@@ -8,10 +8,13 @@ use App\Models\ProjectCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
+use App\Traits\FileUploadTrait;
 use Alert;
 
 class ProjectController extends Controller
 {
+    use FileUploadTrait;
+
     public function index()
     {
         $projects = Project::all();
@@ -33,7 +36,7 @@ class ProjectController extends Controller
             'about' => ['required', 'max:6553'],
         ]);
 
-        $imagePath = handleUpload('cover');
+        $imagePath = $this->uploadImage($request, 'cover');
 
         $project = new Project();
         $project->cover = $imagePath;
@@ -69,9 +72,10 @@ class ProjectController extends Controller
         ]);
 
         $project = Project::findOrFail($id);
-        $imagePath = handleUpload('cover', $project);
+        /** Handle Image Upload */
+        $imagePath = $this->uploadImage($request, 'cover', $project->cover);
 
-        $project->cover = (!empty($imagePath) ? $imagePath : $project->cover);
+        $project->cover = !empty($imagePath) ? $imagePath : $project->cover;
         $project->name = $request->name;
         $project->slug = Str::slug($request->name);
         $project->about = $request->about;
@@ -84,10 +88,17 @@ class ProjectController extends Controller
 
     public function destroy($id)
     {
-        $project = Project::findOrFail($id);
-        deleteFileIfExist($project->cover);
-        $project->delete();
+        // $project = Project::findOrFail($id);
+        // deleteFileIfExist($project->cover);
+        // $project->delete();
 
-        toastr()->success('Project Deleted Successfully!');
+        try {
+            $project = Project::findOrFail($id);
+            $this->removeImage($project->cover);
+            $project->delete();
+            return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        } catch (\Exception $e) {
+            return response(['status' => 'error', 'message' => 'something went wrong!']);
+        }
     }
 }

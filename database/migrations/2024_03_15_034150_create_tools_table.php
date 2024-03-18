@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('tagline');
             $table->string('logo');
-            $table->softDeletes();
             $table->timestamps();
         });
     }

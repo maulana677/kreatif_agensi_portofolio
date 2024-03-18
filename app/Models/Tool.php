@@ -8,9 +8,11 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Tool extends Model
 {
-    use HasFactory, SoftDeletes;
+    use HasFactory;
 
-    protected $guarded = [
-        'id'
+    protected $fillable = [
+        'name',
+        'tagline',
+        'logo'
     ];
 }

@@ -25,6 +25,8 @@ function handleUpload($inputName, $model = null)
 
 /** Delete file */
 
+/** Delete file */
+
 function deleteFileIfExist($filePath)
 {
     try {
@@ -35,6 +37,7 @@ function deleteFileIfExist($filePath)
         throw $e;
     }
 }
+
 
 /** get dynamic colors  */
 

@@ -57,7 +57,8 @@ class ProjectCategoryController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $projectCategory = ProjectCategory::findOrFail($id);
+        return view('admin.project-category.edit', compact('projectCategory'));
     }
 
     /**
@@ -65,7 +66,17 @@ class ProjectCategoryController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'name' => ['required', 'max:200']
+        ]);
+
+        $category = ProjectCategory::findOrFail($id);
+        $category->name = $request->name;
+        $category->slug = Str::slug($request->name);
+        $category->save();
+
+        toastr()->success('Data Successfully Created');
+        return redirect()->route('admin.projects-category.index');
     }
 
     /**
@@ -73,6 +84,16 @@ class ProjectCategoryController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        // $project = ProjectCategory::findOrFail($id);
+        // $project->delete();
+        // toastr()->success('Data Deleted Successfully!');
+
+        try {
+            $category = ProjectCategory::findOrFail($id);
+            $category->delete();
+            return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        } catch (\Exception $e) {
+            return response(['status' => 'error', 'message' => 'something went wrong!']);
+        }
     }
 }

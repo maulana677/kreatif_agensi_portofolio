@@ -1,4 +1,4 @@
-@extends('admin.layouts.layout')
+@extends('admin.layouts.master')
 
 @section('content')
     <section class="section">
@@ -6,7 +6,7 @@
             <h1>Portfolio Category</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
-                <div class="breadcrumb-item"><a href="{{ route('admin.category.index') }}">Posts</a></div>
+                <div class="breadcrumb-item"><a href="{{ route('admin.projects-category.index') }}">Posts</a></div>
                 <div class="breadcrumb-item">Edit Portfolio Category</div>
             </div>
         </div>
@@ -24,15 +24,15 @@
                             <h4>Edit Category</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.category.update', $category->id) }}" method="POST"
-                                enctype="multipart/form-data">
+                            <form action="{{ route('admin.projects-category.update', $projectCategory->id) }}"
+                                method="POST" enctype="multipart/form-data">
                                 @csrf
                                 @method('PUT')
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Name</label>
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" name="name" class="form-control"
-                                            value="{{ $category->name }}">
+                                            value="{{ $projectCategory->name }}">
                                     </div>
                                 </div>
 

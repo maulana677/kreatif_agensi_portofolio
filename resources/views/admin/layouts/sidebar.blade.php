@@ -74,7 +74,7 @@
             </li>
 
             <li class="dropdown">
-                <a class="nav-link" href=""><i class="fas fa-stream"></i>
+                <a class="nav-link" href="{{ route('admin.tools.index') }}"><i class="fas fa-stream"></i>
                     <span>Tools</span>
                 </a>
             </li>
