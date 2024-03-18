@@ -13,4 +13,9 @@ class ProjectTool extends Model
     protected $guarded = [
         'id'
     ];
+
+    public function tools()
+    {
+        return $this->belongsTo(Tool::class, 'tool_id', 'id');
+    }
 }

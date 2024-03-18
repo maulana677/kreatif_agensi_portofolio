@@ -52,7 +52,7 @@
                                                 <td>{{ $item->name }}</td>
                                                 <td>{{ $item->projectCategory->name }}</td>
                                                 <td>
-                                                    <a href="{{ route('admin.projects-tools.create') }}"
+                                                    <a href="{{ route('admin.projects-tools.show-index', $item->id) }}"
                                                         class="btn btn-primary">
                                                         <i class="fas fa-plus"> </i> Add Tools
                                                     </a>

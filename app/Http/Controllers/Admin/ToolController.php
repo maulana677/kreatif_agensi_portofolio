@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProjectTool;
 use App\Models\Tool;
 use Illuminate\Http\Request;
 use App\Traits\FileUploadTrait;
@@ -31,12 +32,12 @@ class ToolController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ProjectTool $tools)
     {
         $request->validate([
             'name' => ['required', 'max:200'],
             'tagline' => ['required', 'string', 'max:255'],
-            'logo' => ['required', 'image', 'max:5000'],
+            'logo' => ['image', 'max:5000'],
         ]);
 
         $imagePath = $this->uploadImage($request, 'logo');

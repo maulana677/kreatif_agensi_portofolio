@@ -19,7 +19,7 @@
 
             <div class="row">
                 <div class="col-12">
-                    <div class="card">
+                    <div class="card card-primary">
                         <div class="card-header">
                             <h4>Assign Tools</h4>
                         </div>
@@ -48,6 +48,34 @@
                                 </div>
                             </form>
 
+                        </div>
+                    </div>
+                    <div class="card card-primary">
+                        <div class="card-body">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Tools</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($projectTools as $item)
+                                        <tr>
+                                            <td>{{ $item->tools->name }}</td>
+                                            <td>
+                                                <a href='{{ route('admin.projects-tools.destroy', $item->id) }}'
+                                                    class='btn btn-danger delete-item mx-2'><i class='fas fa-trash'></i></a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                    @if ($count === 0)
+                                        <tr>
+                                            <td colspan='2' class="text-center">No data found!</td>
+                                        </tr>
+                                    @endif
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>

@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('projects', ProjectController::class);
 
     /** Project Tools Route */
+    Route::get('projects-tools/{projects}', [ProjectToolController::class, 'index'])->name('projects-tools.show-index');
     Route::resource('projects-tools', ProjectToolController::class);
 
     /** Tools Route */
