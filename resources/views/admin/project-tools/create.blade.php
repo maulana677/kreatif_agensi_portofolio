@@ -3,19 +3,17 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Assign Tools</h1>
+            <h1>Assign Tools ({{ $project->name }})</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Posts</a></div>
                 <div class="breadcrumb-item">Create Assign Tools</div>
             </div>
         </div>
-
         <div class="section-body">
-            <h2 class="section-title">Assign Tools</h2>
-            <p class="section-lead">
-                On this page you can create a new post and fill in all fields.
-            </p>
+            <div>
+                <a href="{{ route('admin.projects.index') }}" class="btn btn-primary my-3">Go Back</a>
+            </div>
 
             <div class="row">
                 <div class="col-12">
@@ -24,14 +22,14 @@
                             <h4>Assign Tools</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.projects-tools.store') }}" method="POST"
+                            <form action="{{ route('admin.projects.assign.tool.store', $project) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Tools</label>
+                                <div class="form-group">
                                     <div class="col-sm-12 col-md-7">
-                                        <select class="form-control selectric" name="tool_id">
+                                        <label>Tools</label>
+                                        <select class="form-control selectric" name="tool_id" id="tool_id">
                                             <option>Select</option>
                                             @foreach ($tools as $item)
                                                 <option value="{{ $item->id }}">{{ $item->name }}</option>
@@ -40,8 +38,7 @@
                                     </div>
                                 </div>
 
-                                <div class="form-group row mb-4">
-                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
+                                <div class="form-group">
                                     <div class="col-sm-12 col-md-7">
                                         <button class="btn btn-primary">Assign Tools</button>
                                     </div>
@@ -52,28 +49,40 @@
                     </div>
                     <div class="card card-primary">
                         <div class="card-body">
-                            <table class="table table-bordered">
+                            <table class="table table-bordered" id="table">
                                 <thead>
                                     <tr>
+                                        <th>Image</th>
                                         <th>Tools</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($projectTools as $item)
+                                    @forelse ($project->tools as $item)
                                         <tr>
-                                            <td>{{ $item->tools->name }}</td>
                                             <td>
-                                                <a href='{{ route('admin.projects-tools.destroy', $item->id) }}'
-                                                    class='btn btn-danger delete-item mx-2'><i class='fas fa-trash'></i></a>
+                                                <img src="{{ asset($item->logo) }}" width="80" alt=""
+                                                    class="img-thumbnail">
+                                            </td>
+                                            <td>{{ $item->name }}</td>
+                                            <td>
+                                                <form action="{{ route('admin.projects-tools.destroy', $item->pivot->id) }}"
+                                                    method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class='btn btn-danger mx-2'><i
+                                                            class='fas fa-trash'></i> Hapus</button>
+
+                                                </form>
+                                                {{--  <a href='{{ route('admin.projects-tools.destroy', $item->id) }}'
+                                                    class='btn btn-danger mx-2'><i class='fas fa-trash'></i></a>  --}}
                                             </td>
                                         </tr>
-                                    @endforeach
-                                    @if ($count === 0)
+                                    @empty
                                         <tr>
-                                            <td colspan='2' class="text-center">No data found!</td>
+                                            <td colspan='3' class="text-center">No data found!</td>
                                         </tr>
-                                    @endif
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -83,3 +92,11 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('#table').DataTable();
+        });
+    </script>
+@endpush

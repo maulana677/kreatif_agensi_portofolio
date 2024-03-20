@@ -48,7 +48,8 @@
         </div>
         <ul class="sidebar-menu">
             <li class="menu-header">Dashboard</li>
-            <li class=""><a class="nav-link" href="{{ route('dashboard') }}"><i class="fas fa-fire"></i>General
+            <li class="{{ setSidebarActive(['dashboard']) }}"><a class="nav-link" href="{{ route('dashboard') }}"><i
+                        class="fas fa-fire"></i>General
                     Dashboard</a>
             </li>
 
@@ -60,20 +61,24 @@
                 </a>
             </li>  --}}
 
-            <li class="dropdown">
+            <li class="dropdown {{ setSidebarActive(['admin.projects-category.*', 'admin.projects.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>Projects</span></a>
                 <ul class="dropdown-menu">
-                    <li class=""><a class="nav-link" href="{{ route('admin.projects-category.index') }}">Project
-                            Category</a>
+                    <li class="{{ setSidebarActive(['admin.projects-category.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.projects-category.index') }}">
+                            Project Category
+                        </a>
                     </li>
-                    <li class="">
-                        <a class="nav-link" href="{{ route('admin.projects.index') }}">Project</a>
+                    <li class="{{ setSidebarActive(['admin.projects.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.projects.index') }}">
+                            Project
+                        </a>
                     </li>
                 </ul>
             </li>
 
-            <li class="dropdown">
+            <li class="{{ setSidebarActive(['admin.tools.*']) }}">
                 <a class="nav-link" href="{{ route('admin.tools.index') }}"><i class="fas fa-stream"></i>
                     <span>Tools</span>
                 </a>
@@ -85,7 +90,7 @@
                 </a>
             </li>
 
-            <li class="dropdown">
+            {{--  <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>Sections </span></a>
                 <ul class="dropdown-menu">
@@ -122,7 +127,7 @@
             </li>
             <li class=""><a class="nav-link" href=""><i class="fas fa-cogs"></i>
                     <span>Settings</span></a>
-            </li>
+            </li>  --}}
         </ul>
         {{--  <li class="dropdown">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>

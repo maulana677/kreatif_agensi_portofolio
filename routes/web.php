@@ -45,10 +45,12 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     /** Project Route */
     Route::resource('projects', ProjectController::class);
 
-    /** Project Tools Route */
-    Route::get('projects-tools/{projects}', [ProjectToolController::class, 'index'])->name('projects-tools.show-index');
-    Route::resource('projects-tools', ProjectToolController::class);
-
     /** Tools Route */
     Route::resource('tools', ToolController::class);
+
+    /** Project Tools Route */
+    Route::resource('projects-tools', ProjectToolController::class);
+
+    Route::get('tools/assign/{project}', [ProjectToolController::class, 'create'])->name('projects.assign.tool');
+    Route::post('tools/assign/save/{project}', [ProjectToolController::class, 'store'])->name('projects.assign.tool.store');
 });
