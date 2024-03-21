@@ -5,6 +5,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\ToolController;
 use Illuminate\Support\Facades\Route;
@@ -53,4 +54,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('tools/assign/{project}', [ProjectToolController::class, 'create'])->name('projects.assign.tool');
     Route::post('tools/assign/save/{project}', [ProjectToolController::class, 'store'])->name('projects.assign.tool.store');
+
+    /** Project Screenshots Route */
+    Route::resource('projects-screenshots', ProjectScreenshotController::class);
+    Route::get('screenshots/{project}', [ProjectScreenshotController::class, 'create'])->name('projects-screenshots.create-page');
+    Route::post('screenshots/save/{project}', [ProjectScreenshotController::class, 'store'])->name('projects.screenshots.store-page');
 });

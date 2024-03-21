@@ -56,8 +56,9 @@
                                                         class="btn btn-primary">
                                                         <i class="fas fa-plus"> </i> Add Tools
                                                     </a>
-                                                    <a href="" class="btn btn-primary">
-                                                        <i class="fas fa-edit"></i> Add Screenshots
+                                                    <a href="{{ route('admin.projects-screenshots.create-page', $item->id) }}"
+                                                        class="btn btn-primary">
+                                                        <i class="fas fa-plus"> </i> Add Screenshots
                                                     </a>
                                                     <a href="{{ route('admin.projects.edit', $item->id) }}"
                                                         class="btn btn-primary"><i class="fas fa-edit"></i> Edit</a>

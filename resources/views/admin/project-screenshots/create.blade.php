@@ -3,11 +3,11 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Assign Tools ({{ $project->name }})</h1>
+            <h1>Screenshots ({{ $project->name }})</h1>
             <div class="section-header-breadcrumb">
                 <div class="breadcrumb-item active"><a href="{{ route('dashboard') }}">Dashboard</a></div>
                 <div class="breadcrumb-item"><a href="#">Posts</a></div>
-                <div class="breadcrumb-item">Create Assign Tools</div>
+                <div class="breadcrumb-item">Create Screenshots</div>
             </div>
         </div>
         <div class="section-body">
@@ -19,28 +19,21 @@
                 <div class="col-12">
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h4>Assign Tools</h4>
+                            <h4>Screenshots</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('admin.projects.assign.tool.store', $project) }}" method="POST"
+                            <form action="{{ route('admin.projects.screenshots.store-page', $project) }}" method="POST"
                                 enctype="multipart/form-data">
                                 @csrf
 
-                                <div class="form-group">
+                                <div class="form-group row mb-4">
                                     <div class="col-sm-12 col-md-7">
-                                        <label>Tools</label>
-                                        <select class="form-control selectric" name="tool_id" id="tool_id">
-                                            <option>Select</option>
-                                            @foreach ($tools as $item)
-                                                <option value="{{ $item->id }}">{{ $item->name }}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <div class="col-sm-12 col-md-7">
-                                        <button class="btn btn-primary">Assign Tools</button>
+                                        <label>Screenshots</label>
+                                        <div id="image-preview" class="image-preview mb-3">
+                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <input type="file" name="screenshot" id="image-upload" />
+                                        </div>
+                                        <button class="btn btn-primary">Add Screenshots</button>
                                     </div>
                                 </div>
                             </form>
@@ -55,31 +48,29 @@
                                         <th class="text-left">
                                             No
                                         </th>
-                                        <th>Image</th>
-                                        <th>Tools</th>
+                                        <th>Screenshots</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @forelse ($project->tools as $item)
+                                    @forelse ($project->screenshots as $item)
                                         <tr>
                                             <td>{{ ++$loop->index }}</td>
                                             <td>
-                                                <img src="{{ asset($item->logo) }}" width="100" alt=""
+                                                <img src="{{ asset($item->screenshot) }}" width="150" alt=""
                                                     class="img-thumbnail">
                                             </td>
-                                            <td>{{ $item->name }}</td>
                                             <td>
-                                                <form action="{{ route('admin.projects-tools.destroy', $item->pivot->id) }}"
+                                                {{--  <form action="{{ route('admin.projects.screenshots.destroy', $item->id) }}"
                                                     method="POST">
                                                     @csrf
                                                     @method('DELETE')
                                                     <button type="submit" class='btn btn-danger mx-2'><i
-                                                            class='fas fa-trash'></i> Delete</button>
+                                                            class='fas fa-trash'></i> Hapus</button>
 
-                                                </form>
-                                                {{--  <a href='{{ route('admin.projects-tools.destroy', $item->id) }}'
-                                                    class='btn btn-danger mx-2'><i class='fas fa-trash'></i></a>  --}}
+                                                </form>  --}}
+                                                <a href='{{ route('admin.projects-screenshots.destroy', $item->id) }}'
+                                                    class='btn btn-danger mx-2'><i class='fas fa-trash'></i> Delete</a>
                                             </td>
                                         </tr>
                                     @empty
