@@ -21,7 +21,7 @@
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
             </li>
             <li>
-                <a href="#"
+                <a href="{{ route('home.about') }}"
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
             </li>
         </ul>

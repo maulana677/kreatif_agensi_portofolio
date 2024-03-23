@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\About;
 use App\Models\Project;
 use App\Models\ProjectScreenshot;
 use Illuminate\Http\Request;
@@ -37,6 +38,12 @@ class HomeController extends Controller
         return view('frontend.testimonial', [
             'project' => $project
         ]);
+    }
+
+    public function about()
+    {
+        $about = About::first();
+        return view('frontend.about', compact('about'));
     }
 
     public function book()

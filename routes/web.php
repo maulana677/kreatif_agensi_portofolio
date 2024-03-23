@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -27,6 +28,9 @@ Route::get('/details/{project:slug}', [HomeController::class, 'details'])->name(
 Route::get('/book', [HomeController::class, 'book'])->name('book');
 Route::get('/services', [HomeController::class, 'services'])->name('home.services');
 Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('home.testimonials');
+Route::get('/about', [HomeController::class, 'about'])->name('home.about');
+Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -61,4 +65,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     Route::resource('projects-screenshots', ProjectScreenshotController::class);
     Route::get('screenshots/{project}', [ProjectScreenshotController::class, 'create'])->name('projects-screenshots.create-page');
     Route::post('screenshots/save/{project}', [ProjectScreenshotController::class, 'store'])->name('projects.screenshots.store-page');
+
+    /** About Route */
+    Route::resource('about', AboutController::class);
 });

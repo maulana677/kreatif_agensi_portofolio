@@ -1,46 +1,32 @@
 @extends('frontend.layouts.master')
 
-@section('title', 'Testimonial')
+@section('title', 'About Me')
 
 @section('content')
     <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
         @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[180px] flex justify-between items-center relative">
-            <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
-                <h1 class="font-extrabold text-[80px] leading-[90px]">My Freelance Testimonials</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae hic repellendus porro?</p>
+        <div class="hero container max-w-[1130px] mx-auto pt-[100px] pb-[180px] flex justify-between items-center relative">
+            <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-2">
+                <h1 class="font-extrabold text-[80px] leading-[90px]">{{ $about->title }}</h1>
+                <div class="desc wow fadeInUp font-extrabold text-[20px]" data-wow-delay="0.4s" style="color: white">
+                    {!! $about->description !!}
+                </div>
+                <a href="{{ route('resume.download') }}"
+                    class="font-extrabold text-[20px] leading-[39px] rounded-[30px] p-[10px_40px] bg-portto-purple w-fit transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]"
+                    <a href="" class="button-primary-trans mouse-dir wow fadeInUp" data-wow-delay="0.5s">
+                    <span class="icon"><i class="fal fa-download"></i></span>
+                    <span class="text">Download Resume</span>
+                    <span class="dir-part"></span>
+                </a>
+
             </div>
-            {{--  <div class="flex max-w-[471px] max-h-[567px] z-10">
-                <img src="{{ asset('frontend/assets/images/hero-image.png') }}" class="w-full h-full object-contain"
-                    alt="hero image">
-            </div>  --}}
-        </div>
-        <div
-            class="stats container max-w-[1130px] mx-auto bg-gradient-to-r from-[#FFEDD3] to-[#FFCD83] flex justify-between items-center px-[100px] rounded-[30px] w-full h-[180px] absolute transform -translate-x-1/2 translate-y-1/2 bottom-0 left-1/2">
-            <div class="text-center w-fit h-fit">
-                <p class="font-extrabold text-[40px] leading-[60px]">$230M</p>
-                <p class="font-semibold text-lg">Valuation</p>
-            </div>
-            <div class="text-center w-fit h-fit">
-                <p class="font-extrabold text-[40px] leading-[60px]">31,934</p>
-                <p class="font-semibold text-lg">Projects</p>
-            </div>
-            <div class="text-center w-fit h-fit">
-                <p class="font-extrabold text-[40px] leading-[60px]">245</p>
-                <p class="font-semibold text-lg">Startups IPO</p>
-            </div>
-            <div class="text-center w-fit h-fit">
-                <p class="font-extrabold text-[40px] leading-[60px]">9/10</p>
-                <p class="font-semibold text-lg">Successful</p>
-            </div>
-            <div class="text-center w-fit h-fit">
-                <p class="font-extrabold text-[40px] leading-[60px]">562</p>
-                <p class="font-semibold text-lg">Companies</p>
+            <div class="flex max-w-[471px] max-h-[567px] mt-[100px] z-10 m-5">
+                <img src="{{ asset($about->image) }}" class="w-full h-full object-contain" alt="hero image">
             </div>
         </div>
     </section>
 
-    <section id="Testimonials" class="bg-[#F4F5F8]">
+    {{--  <section id="Testimonials" class="bg-[#F4F5F8]">
         <div class="container max-w-[1130px] mx-auto pt-[180px] pb-[100px]">
             <h2 class="font-extrabold text-[50px] leading-[70px] text-center">I Have Delivered Success <br>For All My
                 Clients</h2>
@@ -143,7 +129,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section>  --}}
 
 
     {{--  foooter start  --}}
