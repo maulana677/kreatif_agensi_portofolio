@@ -25,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/details/{project:slug}', [HomeController::class, 'details'])->name('home.details');
 Route::get('/book', [HomeController::class, 'book'])->name('book');
+Route::get('/services', [HomeController::class, 'services'])->name('home.services');
+Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('home.testimonials');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');
 

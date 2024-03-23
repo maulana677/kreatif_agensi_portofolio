@@ -9,19 +9,19 @@
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Home</a>
             </li>
             <li>
-                <a href=""
+                <a href="{{ route('home.services') }}"
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Services</a>
             </li>
             <li>
-                <a href=""
+                <a href="{{ route('home.testimonials') }}"
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
             </li>
             <li>
-                <a href=""
+                <a href="#"
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
             </li>
             <li>
-                <a href=""
+                <a href="#"
                     class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
             </li>
         </ul>

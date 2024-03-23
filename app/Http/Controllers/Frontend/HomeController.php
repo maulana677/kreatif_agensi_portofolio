@@ -19,11 +19,23 @@ class HomeController extends Controller
 
     public function details(Project $project, ProjectScreenshot $screenshots)
     {
-        // $screenshots = ProjectScreenshot::orderBy('id', 'desc')->take(6)->get();
-
         return view('frontend.detail', [
             'project' => $project,
             'screenshots' => $screenshots
+        ]);
+    }
+
+    public function services(Project $project)
+    {
+        return view('frontend.services', [
+            'project' => $project
+        ]);
+    }
+
+    public function testimonials(Project $project)
+    {
+        return view('frontend.testimonial', [
+            'project' => $project
         ]);
     }
 
