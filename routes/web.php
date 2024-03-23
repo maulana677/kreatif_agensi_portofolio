@@ -23,7 +23,7 @@ use Illuminate\Support\Facades\Route;
 
 /** Frontend Routes */
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/details', [HomeController::class, 'details'])->name('home.details');
+Route::get('/details/{project:slug}', [HomeController::class, 'details'])->name('home.details');
 Route::get('/book', [HomeController::class, 'book'])->name('book');
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

@@ -3,18 +3,28 @@
 namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\Project;
+use App\Models\ProjectScreenshot;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('frontend.index');
+        $projects = Project::orderBy('id', 'desc')->take(6)->get();
+        return view('frontend.index', [
+            'projects' => $projects
+        ]);
     }
 
-    public function details()
+    public function details(Project $project, ProjectScreenshot $screenshots)
     {
-        return view('frontend.detail');
+        // $screenshots = ProjectScreenshot::orderBy('id', 'desc')->take(6)->get();
+
+        return view('frontend.detail', [
+            'project' => $project,
+            'screenshots' => $screenshots
+        ]);
     }
 
     public function book()
