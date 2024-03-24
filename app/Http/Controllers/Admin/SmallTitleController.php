@@ -73,7 +73,7 @@ class SmallTitleController extends Controller
         $smallTitleUpdate->save();
 
         toastr()->success('Title Updated Successfully!');
-        return redirect()->route('admin.typer-title.index');
+        return redirect()->route('admin.small-title.index');
     }
 
     /**

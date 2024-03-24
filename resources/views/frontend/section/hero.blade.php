@@ -2,7 +2,9 @@
     @include('frontend.section.navbar')
     <div class="hero container max-w-[1130px] mx-auto flex justify-between items-center relative">
         <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10">
-            <p class="font-semibold text-2xl">I’m Shayna 👋</p>
+            @foreach ($smallTitles as $smallTitle)
+                <p class="font-semibold text-2xl">{{ $smallTitle->title }}</p>
+            @endforeach
             <h1 class="font-extrabold text-[80px] leading-[90px]">Professional Designer & Dev</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae hic repellendus porro?</p>
             <a href="#"

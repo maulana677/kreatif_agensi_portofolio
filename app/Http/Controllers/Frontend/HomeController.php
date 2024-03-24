@@ -6,15 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Project;
 use App\Models\ProjectScreenshot;
+use App\Models\SmallTitle;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
     public function index()
     {
+        $smallTitles = SmallTitle::all();
         $projects = Project::orderBy('id', 'desc')->take(6)->get();
         return view('frontend.index', [
-            'projects' => $projects
+            'projects' => $projects,
+            'smallTitles' => $smallTitles
         ]);
     }
 
