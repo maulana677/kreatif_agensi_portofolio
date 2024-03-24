@@ -1,5 +1,5 @@
 <nav class="container max-w-[1130px] mx-auto flex justify-between items-center pt-[30px] z-10">
-    <a href="index.html" class="w-[161px] flex shrink-0 h-fit w-fit">
+    <a href="{{ route('home') }}" class="w-[161px] flex shrink-0 h-fit w-fit">
         <img src="{{ asset('frontend/assets/images/logos/logo.svg') }}" alt="logo">
     </a>
     <div class="flex gap-[50px] items-center">

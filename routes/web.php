@@ -8,6 +8,7 @@ use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectToolController;
+use App\Http\Controllers\Admin\SmallTitleController;
 use App\Http\Controllers\Admin\ToolController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,6 +46,10 @@ require __DIR__ . '/auth.php';
 Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth')->name('dashboard');
 
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
+
+    /** Hero Route */
+    // Route::resource('hero', HeroController::class);
+    Route::resource('small-title', SmallTitleController::class);
 
     /** Project Category Route */
     Route::resource('projects-category', ProjectCategoryController::class);

@@ -5,10 +5,10 @@
             <p class="font-semibold text-2xl">I’m Shayna 👋</p>
             <h1 class="font-extrabold text-[80px] leading-[90px]">Professional Designer & Dev</h1>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae hic repellendus porro?</p>
-            <button
-                class="font-bold text-[26px] leading-[39px] rounded-[30px] p-[30px_40px] bg-portto-purple w-fit transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">Explore
-                Now
-            </button>
+            <a href="#"
+                class="font-bold text-[20px] leading-[39px] rounded-[30px] p-[10px_40px] bg-portto-purple w-fit transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">
+                Explore Now <span class="dir-part"></span>
+            </a>
         </div>
         <div class="flex max-w-[471px] max-h-[567px] z-10">
             <img src="{{ asset('frontend/assets/images/hero-image.png') }}" class="w-full h-full object-contain"
