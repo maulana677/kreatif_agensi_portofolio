@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
@@ -48,7 +49,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->middleware('auth
 Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], function () {
 
     /** Hero Route */
-    // Route::resource('hero', HeroController::class);
+    Route::resource('hero', HeroController::class);
     Route::resource('small-title', SmallTitleController::class);
 
     /** Project Category Route */

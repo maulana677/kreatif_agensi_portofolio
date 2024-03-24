@@ -67,9 +67,9 @@
                     <li class="{{ setSidebarActive(['admin.small-title.*']) }}"><a class="nav-link"
                             href="{{ route('admin.small-title.index') }}">Small Title</a>
                     </li>
-                    {{--  <li class="{{ setSidebarActive(['admin.hero.*']) }}"><a class="nav-link"
+                    <li class="{{ setSidebarActive(['admin.hero.*']) }}"><a class="nav-link"
                             href="{{ route('admin.hero.index') }}">Hero section</a>
-                    </li>  --}}
+                    </li>
                 </ul>
             </li>
             <li class="{{ setSidebarActive(['admin.about.*']) }}">
