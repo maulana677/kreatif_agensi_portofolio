@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\FooterInfo;
 use App\Models\Hero;
 use App\Models\Project;
 use App\Models\ProjectCategory;
@@ -17,12 +18,14 @@ class HomeController extends Controller
     public function index()
     {
         $hero = Hero::first();
+        $footerInfo = FooterInfo::first();
         $smallTitles = SmallTitle::all();
         $projects = Project::orderBy('id', 'desc')->take(6)->get();
         return view('frontend.index', [
             'projects' => $projects,
             'smallTitles' => $smallTitles,
-            'hero' => $hero
+            'hero' => $hero,
+            'footerInfo' => $footerInfo,
         ]);
     }
 

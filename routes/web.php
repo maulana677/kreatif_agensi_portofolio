@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -81,4 +82,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** About Route */
     Route::resource('about', AboutController::class);
+
+    // route Footer Info
+    Route::resource('footer-info', FooterInfoController::class);
 });

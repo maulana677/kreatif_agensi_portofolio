@@ -3,11 +3,25 @@
         class="container max-w-[1130px] mx-auto flex justify-between pt-[100px] pb-[50px] mb-[50px] relative border-b border-[#585867]">
         <img src="{{ asset('frontend/assets/images/Ellipse.svg') }}"
             class="absolute h-[300px] top-[70px] -left-[20px] z-0" alt="icon">
-        <div class="flex shrink-0 h-fit z-10">
-            <img src="{{ asset('frontend/assets/images/logos/logo.svg') }}" alt="logo">
+        <div class="z-10">
+            <img src="{{ asset($footerInfo->logo) }}">
+            <div class="flex flex-col gap-5 mt-2">
+                <p class="text-lg">{{ $footerInfo->description }}</p>
+            </div>
+            <div class="flex mt-4 gap-5 sm:mt-3">
+                <a href=""
+                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
+                        src="{{ asset('frontend/assets/images/icons/call.svg') }}" alt="icon"></a>
+                <a href=""
+                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
+                        src="{{ asset('frontend/assets/images/icons/dribbble.svg') }}" alt="icon"></a>
+                <a href=""
+                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
+                        src="{{ asset('frontend/assets/images/icons/sms.svg') }}" alt="icon"></a>
+            </div>
         </div>
         <div class="flex gap-[100px] z-10">
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">Explore</p>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Services</a>
@@ -18,7 +32,7 @@
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">About</a>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">Services</p>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">UI/UX
@@ -33,7 +47,7 @@
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Digital
                     Marketing</a>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">About</p>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">My
@@ -47,7 +61,7 @@
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Team
                     A</a>
             </div>
-            <div class="flex flex-col gap-5">
+            <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">Connect</p>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
@@ -62,5 +76,5 @@
             </div>
         </div>
     </div>
-    <p class="text-sm text-[#A0A0AC] text-center">All Rights Reserved. Copyright BuildWithAngga 2024.</p>
+    <p class="text-sm text-[#A0A0AC] text-center">{{ $footerInfo->copyright }}</p>
 </footer>
