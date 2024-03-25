@@ -7,6 +7,7 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
 use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
+use App\Http\Controllers\Admin\ProjectOrderController;
 use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\SmallTitleController;
@@ -28,10 +29,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/details/{project:slug}', [HomeController::class, 'details'])->name('home.details');
 Route::get('/book', [HomeController::class, 'book'])->name('home.book');
+Route::post('/book/save', [HomeController::class, 'storeBook'])->name('home.book.store-book');
 Route::get('/services', [HomeController::class, 'services'])->name('home.services');
 Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('home.testimonials');
 Route::get('/about', [HomeController::class, 'about'])->name('home.about');
-Route::post('/book/save', [HomeController::class, 'store'])->name('home.book.store');
 
 Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
 
@@ -69,6 +70,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     Route::get('tools/assign/{project}', [ProjectToolController::class, 'create'])->name('projects.assign.tool');
     Route::post('tools/assign/save/{project}', [ProjectToolController::class, 'store'])->name('projects.assign.tool.store');
+
+    /** Project Orders Route */
+    Route::resource('projects-orders', ProjectOrderController::class);
 
     /** Project Screenshots Route */
     Route::resource('projects-screenshots', ProjectScreenshotController::class);

@@ -16,6 +16,6 @@ class ProjectOrder extends Model
 
     public function projectCategory()
     {
-        return $this->belongsTo(ProjectCategory::class);
+        return $this->belongsTo(ProjectCategory::class, 'projectCategory_id', 'id');
     }
 }

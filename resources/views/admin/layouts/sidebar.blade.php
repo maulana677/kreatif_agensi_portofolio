@@ -101,8 +101,8 @@
                 </a>
             </li>
 
-            <li class="dropdown">
-                <a class="nav-link" href=""><i class="fas fa-stream"></i>
+            <li class="{{ setSidebarActive(['admin.projects-orders.*']) }}">
+                <a class="nav-link" href="{{ route('admin.projects-orders.index') }}"><i class="fas fa-stream"></i>
                     <span>Orders</span>
                 </a>
             </li>

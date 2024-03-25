@@ -60,25 +60,25 @@ class HomeController extends Controller
         return view('frontend.book', compact('projectsCategories'));
     }
 
-    public function store(Request $request)
+    public function storeBook(Request $request)
     {
         $request->validate([
             'name' => ['required', 'max:200'],
             'email' => ['required', 'max:255'],
-            'budget' => ['required', 'integer'],
+            'budget' => ['required', 'numeric'],
             'projectCategory_id' => ['required', 'numeric'],
             'brief' => ['required', 'max:6553'],
         ]);
 
-        $project = new ProjectOrder();
-        $project->name = $request->name;
-        $project->email = $request->email;
-        $project->budget = $request->budget;
-        $project->projectCategory_id = $request->projectCategory_id;
-        $project->brief = $request->brief;
-        $project->save();
+        $projectOrder = new ProjectOrder();
+        $projectOrder->name = $request->name;
+        $projectOrder->email = $request->email;
+        $projectOrder->budget = $request->budget;
+        $projectOrder->projectCategory_id = $request->projectCategory_id;
+        $projectOrder->brief = $request->brief;
+        $projectOrder->save();
 
-        toastr()->success('Project Created Successfully!');
-        return redirect()->route('home.book.store');
+        toastr()->success('Book Successfully!');
+        return redirect()->back();
     }
 }
