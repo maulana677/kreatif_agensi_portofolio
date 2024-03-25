@@ -23,7 +23,7 @@
     <div class="company-logos w-full overflow-hidden pb-[190px]">
         <div class="group/slider flex flex-nowrap w-max items-center">
             <div
-                class="logo-container animate-[slide_25s_linear_infinite] group-hover/slider:pause-animate  flex gap-[70px] pl-[70px] items-center flex-nowrap">
+                class="logo-container animate-[slide_25s_linear_infinite] group-hover/slider:pause-animate flex gap-[70px] pl-[70px] items-center flex-nowrap">
                 <div class="flex w-fit h-[40px] shrink-0">
                     <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
                         class="w-full h-full object-contain" alt="logo">

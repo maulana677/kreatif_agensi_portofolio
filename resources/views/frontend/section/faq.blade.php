@@ -8,7 +8,7 @@
                 <h2 class="font-extrabold text-[50px] leading-[70px]">Frequently Asked Questions</h2>
                 <p class="text-lg text-[#878C9C]">If you have any question please contact me.</p>
             </div>
-            <a href=""
+            <a href="{{ route('home.book') }}"
                 class="bg-portto-black font-bold text-lg text-white rounded-full p-[14px_30px] w-fit transition-all duration-300 hover:bg-white hover:text-portto-black hover:ring hover:ring-portto-black">Contact
                 Me</a>
         </div>

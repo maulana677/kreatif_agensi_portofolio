@@ -179,7 +179,7 @@
             </h2>
             <p class="font-semibold text-lg leading-[32px] text-white">I will dedicate my entire career to focus <br>on
                 finishing your future dreams</p>
-            <a href="book.html"
+            <a href="{{ route('home.book') }}"
                 class="bg-portto-light-gold font-bold text-lg p-[14px_30px] rounded-full transition-all duration-300 hover:shadow-[0_10px_20px_0_#FFE7C280]">Book
                 a Meeting</a>
         </div>

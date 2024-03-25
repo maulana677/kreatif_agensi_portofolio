@@ -27,11 +27,14 @@ use Illuminate\Support\Facades\Route;
 /** Frontend Routes */
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/details/{project:slug}', [HomeController::class, 'details'])->name('home.details');
-Route::get('/book', [HomeController::class, 'book'])->name('book');
+Route::get('/book', [HomeController::class, 'book'])->name('home.book');
 Route::get('/services', [HomeController::class, 'services'])->name('home.services');
 Route::get('/testimonials', [HomeController::class, 'testimonials'])->name('home.testimonials');
 Route::get('/about', [HomeController::class, 'about'])->name('home.about');
+Route::post('/book/save', [HomeController::class, 'store'])->name('home.book.store');
+
 Route::get('resume/download', [AboutController::class, 'resumeDownload'])->name('resume.download');
+
 
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->middleware(['auth', 'verified'])->name('dashboard');

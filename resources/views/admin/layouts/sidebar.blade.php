@@ -63,7 +63,7 @@
             <li class="nav-item dropdown {{ setSidebarActive(['admin.small-title.*', 'admin.hero.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Hero</span></a>
-                <ul class="dropdown-menu" style="display: none;">
+                <ul class="dropdown-menu">
                     <li class="{{ setSidebarActive(['admin.small-title.*']) }}"><a class="nav-link"
                             href="{{ route('admin.small-title.index') }}">Small Title</a>
                     </li>

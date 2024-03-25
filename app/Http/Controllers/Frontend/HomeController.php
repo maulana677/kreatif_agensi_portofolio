@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\Hero;
 use App\Models\Project;
+use App\Models\ProjectCategory;
+use App\Models\ProjectOrder;
 use App\Models\ProjectScreenshot;
 use App\Models\SmallTitle;
 use Illuminate\Http\Request;
@@ -54,6 +56,29 @@ class HomeController extends Controller
 
     public function book()
     {
-        return view('frontend.book');
+        $projectsCategories = ProjectCategory::all();
+        return view('frontend.book', compact('projectsCategories'));
+    }
+
+    public function store(Request $request)
+    {
+        $request->validate([
+            'name' => ['required', 'max:200'],
+            'email' => ['required', 'max:255'],
+            'budget' => ['required', 'integer'],
+            'projectCategory_id' => ['required', 'numeric'],
+            'brief' => ['required', 'max:6553'],
+        ]);
+
+        $project = new ProjectOrder();
+        $project->name = $request->name;
+        $project->email = $request->email;
+        $project->budget = $request->budget;
+        $project->projectCategory_id = $request->projectCategory_id;
+        $project->brief = $request->brief;
+        $project->save();
+
+        toastr()->success('Project Created Successfully!');
+        return redirect()->route('home.book.store');
     }
 }
