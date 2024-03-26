@@ -17,8 +17,12 @@
 <body class="text-portto-black font-poppins">
     @php
         $footerGridOne = \App\Models\FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = \App\Models\FooterGridTwo::where(['status' => 1])->get();
         $footerGridOneTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_one_title',
+        ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
         ])->first();
     @endphp
 

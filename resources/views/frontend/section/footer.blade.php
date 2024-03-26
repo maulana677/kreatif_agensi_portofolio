@@ -29,33 +29,20 @@
                 @endforeach
             </div>
             <div class="flex flex-col gap-3">
-                <p class="font-bold text-lg">Services</p>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">UI/UX
-                    Design</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Web
-                    Development</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Data
-                    Science</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Digital
-                    Marketing</a>
+                <p class="font-bold text-lg">{{ @$footerGridTwoTitle->value }}</p>
+                @foreach ($footerGridTwo as $gridTwo)
+                    <a href="{{ $gridTwo->url }}"
+                        class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">{{ $gridTwo->name }}
+                    </a>
+                @endforeach
             </div>
             <div class="flex flex-col gap-3">
-                <p class="font-bold text-lg">About</p>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">My
-                    Profile</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">How
-                    do I work</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Achievements</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Team
-                    A</a>
+                <p class="font-bold text-lg">{{ @$footerGridThreeTitle->value }}</p>
+                @foreach ($footerGridThree as $gridThree)
+                    <a href="{{ $gridThree->url }}"
+                        class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">{{ $gridThree->name }}
+                    </a>
+                @endforeach
             </div>
             <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">Connect</p>

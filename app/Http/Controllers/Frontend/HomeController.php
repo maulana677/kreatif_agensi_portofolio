@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\FooterGridOne;
+use App\Models\FooterGridTwo;
 use App\Models\FooterInfo;
 use App\Models\FooterTitle;
 use App\Models\Hero;
@@ -23,8 +24,12 @@ class HomeController extends Controller
         $footerInfo = FooterInfo::first();
         $smallTitles = SmallTitle::all();
         $footerGridOne = FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
+        ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
         ])->first();
         $projects = Project::orderBy('id', 'desc')->take(6)->get();
         return view('frontend.index', [
@@ -33,7 +38,9 @@ class HomeController extends Controller
             'hero' => $hero,
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
+            'footerGridTwo' => $footerGridTwo,
             'footerGridOneTitle' => $footerGridOneTitle,
+            'footerGridTwoTitle' => $footerGridTwoTitle,
         ]);
     }
 
