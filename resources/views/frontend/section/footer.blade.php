@@ -22,15 +22,11 @@
         </div>
         <div class="flex gap-[100px] z-10">
             <div class="flex flex-col gap-3">
-                <p class="font-bold text-lg">Explore</p>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Services</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">Pricing</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">About</a>
+                <p class="font-bold text-lg">{{ @$footerGridOneTitle->value }}</p>
+                @foreach ($footerGridOne as $gridOne)
+                    <a href="{{ $gridOne->url }}"
+                        class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300">{{ $gridOne->name }}</a>
+                @endforeach
             </div>
             <div class="flex flex-col gap-3">
                 <p class="font-bold text-lg">Services</p>
@@ -69,7 +65,8 @@
                     1996</a>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
-                        src="{{ asset('frontend/assets/images/icons/dribbble.svg') }}" alt="icon">buildwithangga</a>
+                        src="{{ asset('frontend/assets/images/icons/dribbble.svg') }}"
+                        alt="icon">buildwithangga</a>
                 <a href=""
                     class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
                         src="{{ asset('frontend/assets/images/icons/sms.svg') }}" alt="icon">team@bwa.com</a>

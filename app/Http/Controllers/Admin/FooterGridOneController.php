@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\FooterGridOne;
+use App\Models\FooterTitle;
 use Illuminate\Http\Request;
 
 class FooterGridOneController extends Controller
@@ -59,7 +60,7 @@ class FooterGridOneController extends Controller
     public function edit(string $id)
     {
         $footer = FooterGridOne::findOrFail($id);
-        return view('admin.footer-grid-one.edit', compact('footer', 'bahasa'));
+        return view('admin.footer-grid-one.edit', compact('footer'));
     }
 
     /**
@@ -96,24 +97,22 @@ class FooterGridOneController extends Controller
         }
     }
 
-    // public function handleTitle(Request $request)
-    // {
-    //     $request->validate([
-    //         'title' => ['required', 'max:255']
-    //     ]);
+    public function handleTitle(Request $request)
+    {
+        $request->validate([
+            'title' => ['required', 'max:255']
+        ]);
 
-    //     FooterTitle::updateOrCreate(
-    //         [
-    //             'key' => 'grid_one_title',
-    //             'language' => $request->language
-    //         ],
-    //         [
-    //             'value' => $request->title
-    //         ]
-    //     );
+        FooterTitle::updateOrCreate(
+            [
+                'key' => 'grid_one_title'
+            ],
+            [
+                'value' => $request->title
+            ]
+        );
 
-    //     toast(__('admin.Updated Successfully!'), 'success');
-
-    //     return redirect()->back();
-    // }
+        toastr()->success('Updated Successfully!');
+        return redirect()->back();
+    }
 }

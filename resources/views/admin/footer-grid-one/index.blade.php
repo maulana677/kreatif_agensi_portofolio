@@ -12,16 +12,17 @@
         </div>
 
         <div class="card card-primary">
+            @php
+                $footerTitle = \App\Models\FooterTitle::where([
+                    'key' => 'grid_one_title',
+                ])->first();
+            @endphp
             <div class="card-body">
                 <form action="{{ route('admin.footer-grid-one-title') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="">Footer Title</label>
                         <input type="text" class="form-control" name="title" value="{{ @$footerTitle->value }}">
-                        <input type="hidden" value="" class="form-control" name="language">
-                        @error('title')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -30,7 +31,6 @@
                 </form>
             </div>
         </div>
-
 
         <div class="card card-primary">
             <div class="card-header">
@@ -41,7 +41,6 @@
                     </a>
                 </div>
             </div>
-
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-striped" id="table">

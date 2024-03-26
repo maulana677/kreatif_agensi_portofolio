@@ -15,13 +15,14 @@
 </head>
 
 <body class="text-portto-black font-poppins">
-
-
-
+    @php
+        $footerGridOne = \App\Models\FooterGridOne::where(['status' => 1])->get();
+        $footerGridOneTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_one_title',
+        ])->first();
+    @endphp
 
     @yield('content')
-
-
 
     @stack('before-script')
     <script src="https://cdn.tailwindcss.com"></script>
