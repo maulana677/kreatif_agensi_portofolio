@@ -114,6 +114,9 @@
                     <li class="{{ setSidebarActive(['admin.footer-info.*']) }}">
                         <a class="nav-link" href="{{ route('admin.footer-info.index') }}">Footer Info</a>
                     </li>
+                    <li class="{{ setSidebarActive(['admin.footer-grid-one.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.footer-grid-one.index') }}">Footer Grid One</a>
+                    </li>
                 </ul>
             </li>
         </ul>

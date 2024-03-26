@@ -31,30 +31,40 @@ class HomeController extends Controller
 
     public function details(Project $project, ProjectScreenshot $screenshots)
     {
+        $footerInfo = FooterInfo::first();
         return view('frontend.detail', [
             'project' => $project,
-            'screenshots' => $screenshots
+            'screenshots' => $screenshots,
+            'footerInfo' => $footerInfo
         ]);
     }
 
     public function services(Project $project)
     {
+        $footerInfo = FooterInfo::first();
         return view('frontend.services', [
-            'project' => $project
+            'project' => $project,
+            'footerInfo' => $footerInfo
         ]);
     }
 
     public function testimonials(Project $project)
     {
+        $footerInfo = FooterInfo::first();
         return view('frontend.testimonial', [
-            'project' => $project
+            'project' => $project,
+            'footerInfo' => $footerInfo
         ]);
     }
 
     public function about()
     {
         $about = About::first();
-        return view('frontend.about', compact('about'));
+        $footerInfo = FooterInfo::first();
+        return view('frontend.about', [
+            'about' => $about,
+            'footerInfo' => $footerInfo
+        ]);
     }
 
     public function book()
