@@ -108,7 +108,7 @@
             </li>
 
             <li
-                class="dropdown {{ setSidebarActive(['admin.footer-info.*', 'admin.footer-grid-one.*', 'admin.footer-grid-two.*']) }}">
+                class="dropdown {{ setSidebarActive(['admin.footer-info.*', 'admin.footer-grid-one.*', 'admin.footer-grid-two.*', 'admin.footer-grid-three.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>Footer Setting</span></a>
                 <ul class="dropdown-menu">
@@ -120,6 +120,9 @@
                     </li>
                     <li class="{{ setSidebarActive(['admin.footer-grid-two.*']) }}">
                         <a class="nav-link" href="{{ route('admin.footer-grid-two.index') }}">Footer Grid Two</a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.footer-grid-three.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.footer-grid-three.index') }}">Footer Grid Three</a>
                     </li>
                 </ul>
             </li>

@@ -3,26 +3,25 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Footer Grid Two</h1>
+            <h1>Footer Grid Three</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>Footer Grid Two</h4>
+                <h4>Footer Grid Three</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.footer-grid-two.update', $footer->id) }}" method="POST">
+                <form action="{{ route('admin.footer-grid-three.store') }}" method="POST">
                     @csrf
-                    @method('PUT')
                     <div class="form-group">
                         <label for="">Name</label>
-                        <input name="name" type="text" class="form-control" id="name" value="{{ $footer->name }}">
+                        <input name="name" type="text" class="form-control" id="name">
                         @error('name')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     <div class="form-group">
                         <label for="">Url</label>
-                        <input name="url" value="{{ $footer->url }}" type="text" class="form-control">
+                        <input name="url" type="text" class="form-control">
                         @error('url')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
@@ -30,16 +29,14 @@
                     <div class="form-group">
                         <label for="">Status</label>
                         <select name="status" id="" class="form-control">
-                            <option {{ $footer->status == 1 ? 'selected' : '' }} value="1">Active
-                            </option>
-                            <option {{ $footer->status == 0 ? 'selected' : '' }} value="0">Inactive
-                            </option>
+                            <option value="1">Active</option>
+                            <option value="0">Inactive</option>
                         </select>
                         @error('status')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
-                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="submit" class="btn btn-primary">Create</button>
                 </form>
             </div>
         </div>

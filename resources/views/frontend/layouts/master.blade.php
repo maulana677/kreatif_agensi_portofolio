@@ -18,11 +18,16 @@
     @php
         $footerGridOne = \App\Models\FooterGridOne::where(['status' => 1])->get();
         $footerGridTwo = \App\Models\FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = \App\Models\FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
         $footerGridTwoTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_two_title',
+        ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
         ])->first();
     @endphp
 

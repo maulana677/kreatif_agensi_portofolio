@@ -3,14 +3,14 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h1>Footer Grid Two</h1>
+            <h1>Footer Grid Three</h1>
         </div>
         <div class="card card-primary">
             <div class="card-header">
-                <h4>Footer Grid Two</h4>
+                <h4>Footer Grid Three</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.footer-grid-two.update', $footer->id) }}" method="POST">
+                <form action="{{ route('admin.footer-grid-three.update', $footer->id) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

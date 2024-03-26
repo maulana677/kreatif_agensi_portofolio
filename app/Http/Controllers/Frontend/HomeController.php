@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Http\Controllers\Controller;
 use App\Models\About;
 use App\Models\FooterGridOne;
+use App\Models\FooterGridThree;
 use App\Models\FooterGridTwo;
 use App\Models\FooterInfo;
 use App\Models\FooterTitle;
@@ -25,13 +26,19 @@ class HomeController extends Controller
         $smallTitles = SmallTitle::all();
         $footerGridOne = FooterGridOne::where(['status' => 1])->get();
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
         $footerGridTwoTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_two_title',
         ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
+        ])->first();
         $projects = Project::orderBy('id', 'desc')->take(6)->get();
+
         return view('frontend.index', [
             'projects' => $projects,
             'smallTitles' => $smallTitles,
@@ -39,8 +46,10 @@ class HomeController extends Controller
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
             'footerGridTwo' => $footerGridTwo,
+            'footerGridThree' => $footerGridThree,
             'footerGridOneTitle' => $footerGridOneTitle,
             'footerGridTwoTitle' => $footerGridTwoTitle,
+            'footerGridThreeTitle' => $footerGridThreeTitle,
         ]);
     }
 
@@ -48,15 +57,29 @@ class HomeController extends Controller
     {
         $footerInfo = FooterInfo::first();
         $footerGridOne = FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
+        ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
+        ])->first();
+
         return view('frontend.detail', [
             'project' => $project,
             'screenshots' => $screenshots,
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
+            'footerGridTwo' => $footerGridTwo,
+            'footerGridThree' => $footerGridThree,
             'footerGridOneTitle' => $footerGridOneTitle,
+            'footerGridTwoTitle' => $footerGridTwoTitle,
+            'footerGridThreeTitle' => $footerGridThreeTitle,
         ]);
     }
 
@@ -64,14 +87,28 @@ class HomeController extends Controller
     {
         $footerInfo = FooterInfo::first();
         $footerGridOne = FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
+        ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
+        ])->first();
+
         return view('frontend.services', [
             'project' => $project,
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
+            'footerGridTwo' => $footerGridTwo,
+            'footerGridThree' => $footerGridThree,
             'footerGridOneTitle' => $footerGridOneTitle,
+            'footerGridTwoTitle' => $footerGridTwoTitle,
+            'footerGridThreeTitle' => $footerGridThreeTitle,
         ]);
     }
 
@@ -79,30 +116,58 @@ class HomeController extends Controller
     {
         $footerInfo = FooterInfo::first();
         $footerGridOne = FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
+        ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
+        ])->first();
+
         return view('frontend.testimonial', [
             'project' => $project,
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
+            'footerGridTwo' => $footerGridTwo,
+            'footerGridThree' => $footerGridThree,
             'footerGridOneTitle' => $footerGridOneTitle,
+            'footerGridTwoTitle' => $footerGridTwoTitle,
+            'footerGridThreeTitle' => $footerGridThreeTitle,
         ]);
     }
 
     public function about()
     {
         $about = About::first();
-        $footerGridOne = FooterGridOne::where(['status' => 1])->get();
         $footerInfo = FooterInfo::first();
+        $footerGridOne = FooterGridOne::where(['status' => 1])->get();
+        $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
+        $footerGridThree = FooterGridThree::where(['status' => 1])->get();
+
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
         ])->first();
+        $footerGridTwoTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_two_title',
+        ])->first();
+        $footerGridThreeTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_three_title',
+        ])->first();
+
         return view('frontend.about', [
             'about' => $about,
             'footerInfo' => $footerInfo,
             'footerGridOne' => $footerGridOne,
+            'footerGridTwo' => $footerGridTwo,
+            'footerGridThree' => $footerGridThree,
             'footerGridOneTitle' => $footerGridOneTitle,
+            'footerGridTwoTitle' => $footerGridTwoTitle,
+            'footerGridThreeTitle' => $footerGridThreeTitle,
         ]);
     }
 
