@@ -9,6 +9,7 @@ use App\Models\FooterGridOne;
 use App\Models\FooterGridThree;
 use App\Models\FooterGridTwo;
 use App\Models\FooterInfo;
+use App\Models\FooterSocialLink;
 use App\Models\FooterTitle;
 use App\Models\Hero;
 use App\Models\Project;
@@ -29,6 +30,7 @@ class HomeController extends Controller
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
+        $socialLinks = FooterSocialLink::where('status', 1)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -58,6 +60,7 @@ class HomeController extends Controller
             'footerGridTwoTitle' => $footerGridTwoTitle,
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
+            'socialLinks' => $socialLinks,
         ]);
     }
 

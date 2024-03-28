@@ -9,15 +9,12 @@
                 <p class="text-lg">{{ $footerInfo->description }}</p>
             </div>
             <div class="flex mt-4 gap-5 sm:mt-3">
-                <a href=""
-                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
-                        src="{{ asset('frontend/assets/images/icons/call.svg') }}" alt="icon"></a>
-                <a href=""
-                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
-                        src="{{ asset('frontend/assets/images/icons/dribbble.svg') }}" alt="icon"></a>
-                <a href=""
-                    class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center"><img
-                        src="{{ asset('frontend/assets/images/icons/sms.svg') }}" alt="icon"></a>
+                @foreach ($socialLinks as $socialLink)
+                    <a href="{{ $socialLink->url }}"
+                        class="w-10 h-10 flex shrink-0 rounded-full bg-portto-purple items-center justify-center">
+                        <img src="{{ asset($socialLink->icon) }}" alt="icon">
+                    </a>
+                @endforeach
             </div>
         </div>
         <div class="flex gap-[100px] z-10">

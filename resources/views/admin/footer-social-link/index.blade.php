@@ -37,6 +37,7 @@
                                             </th>
                                             <th>Icon</th>
                                             <th>Url</th>
+                                            <th>Status</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -49,6 +50,13 @@
                                                         class="img-thumbnail">
                                                 </td>
                                                 <td>{{ $footer->url }}</td>
+                                                <td>
+                                                    @if ($footer->status === 1)
+                                                        <span class="badge badge-success">Active</span>
+                                                    @else
+                                                        <span class="badge badge-danger">Inactive</span>
+                                                    @endif
+                                                </td>
                                                 <td>
                                                     <a href="{{ route('admin.footer-social.edit', $footer->id) }}"
                                                         class="btn btn-primary"><i class="fas fa-edit"></i></a>

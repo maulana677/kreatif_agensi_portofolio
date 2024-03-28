@@ -42,6 +42,7 @@ class FooterSocialLinkController extends Controller
         $social = new FooterSocialLink();
         $social->icon = $imagePath;
         $social->url = $request->url;
+        $social->status = $request->status;
         $social->save();
 
         toastr()->success('Created Successfully!');
@@ -81,6 +82,7 @@ class FooterSocialLinkController extends Controller
 
         $footer->icon = !empty($imagePath) ? $imagePath : $footer->icon;
         $footer->url = $request->url;
+        $footer->status = $request->status;
         $footer->save();
 
         toastr()->success('Updated Successfully!');

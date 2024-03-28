@@ -34,6 +34,9 @@
                                             <label for="image-upload" id="image-label">Choose File</label>
                                             <input type="file" name="icon" id="image-upload" />
                                         </div>
+                                        @error('icon')
+                                            <p class="text-danger">{{ $message }}</p>
+                                        @enderror
                                     </div>
                                 </div>
                                 <div class="form-group row mb-4">
@@ -41,6 +44,21 @@
                                     <div class="col-sm-12 col-md-7">
                                         <input type="text" name="url" class="form-control" value="">
                                     </div>
+                                    @error('url')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
+                                </div>
+                                <div class="form-group row mb-4">
+                                    <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Status</label>
+                                    <div class="col-sm-12 col-md-7">
+                                        <select name="status" id="" class="form-control">
+                                            <option value="1">Active</option>
+                                            <option value="0">Inactive</option>
+                                        </select>
+                                    </div>
+                                    @error('status')
+                                        <p class="text-danger">{{ $message }}</p>
+                                    @enderror
                                 </div>
                                 <div class="form-group row mb-4">
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
