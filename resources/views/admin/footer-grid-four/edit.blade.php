@@ -10,7 +10,8 @@
                 <h4>Footer Grid Four</h4>
             </div>
             <div class="card-body">
-                <form action="{{ route('admin.footer-grid-four.update', $footer->id) }}" method="POST">
+                <form action="{{ route('admin.footer-grid-four.update', $footer->id) }}" method="POST"
+                    enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group">

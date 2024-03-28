@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\FooterGridOneController;
 use App\Http\Controllers\Admin\FooterGridThreeController;
 use App\Http\Controllers\Admin\FooterGridTwoController;
 use App\Http\Controllers\Admin\FooterInfoController;
+use App\Http\Controllers\Admin\FooterSocialLinkController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -105,4 +106,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     // route Footer Grid Four
     Route::post('footer-grid-four-title', [FooterGridFourController::class, 'handleTitle'])->name('footer-grid-four-title');
     Route::resource('footer-grid-four', FooterGridFourController::class);
+
+    /** Footer Social Link Route */
+    Route::resource('footer-social', FooterSocialLinkController::class);
 });

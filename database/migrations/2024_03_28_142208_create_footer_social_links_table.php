@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('footer_social_links', function (Blueprint $table) {
             $table->id();
+            $table->string('icon');
+            $table->text('url');
             $table->timestamps();
         });
     }
