@@ -16,6 +16,7 @@ use App\Models\Project;
 use App\Models\ProjectCategory;
 use App\Models\ProjectOrder;
 use App\Models\ProjectScreenshot;
+use App\Models\ProjectSectionSetting;
 use App\Models\SmallTitle;
 use Illuminate\Http\Request;
 
@@ -31,6 +32,7 @@ class HomeController extends Controller
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
         $socialLinks = FooterSocialLink::where('status', 1)->get();
+        $projectTitle = ProjectSectionSetting::first();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -61,6 +63,7 @@ class HomeController extends Controller
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
             'socialLinks' => $socialLinks,
+            'projectTitle' => $projectTitle,
         ]);
     }
 

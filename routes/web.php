@@ -15,6 +15,7 @@ use App\Http\Controllers\Admin\ProjectCategoryController;
 use App\Http\Controllers\Admin\ProjectController;
 use App\Http\Controllers\Admin\ProjectOrderController;
 use App\Http\Controllers\Admin\ProjectScreenshotController;
+use App\Http\Controllers\Admin\ProjectSectionSettingController;
 use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\SmallTitleController;
 use App\Http\Controllers\Admin\ToolController;
@@ -67,6 +68,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** Project Route */
     Route::resource('projects', ProjectController::class);
+
+    /** Portfolio Section Setting Route */
+    Route::resource('projects-section-setting', ProjectSectionSettingController::class);
 
     /** Tools Route */
     Route::resource('tools', ToolController::class);

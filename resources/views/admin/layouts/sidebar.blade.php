@@ -78,7 +78,8 @@
                 </a>
             </li>
 
-            <li class="dropdown {{ setSidebarActive(['admin.projects-category.*', 'admin.projects.*']) }}">
+            <li
+                class="dropdown {{ setSidebarActive(['admin.projects-category.*', 'admin.projects.*', 'admin.projects-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>Projects</span></a>
                 <ul class="dropdown-menu">
@@ -90,6 +91,11 @@
                     <li class="{{ setSidebarActive(['admin.projects.*']) }}">
                         <a class="nav-link" href="{{ route('admin.projects.index') }}">
                             Project
+                        </a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.projects-section-setting.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.projects-section-setting.index') }}">
+                            Section Setting
                         </a>
                     </li>
                 </ul>

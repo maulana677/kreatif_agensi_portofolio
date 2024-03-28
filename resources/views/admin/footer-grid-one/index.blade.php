@@ -36,7 +36,7 @@
             <div class="card-header">
                 <h4>All Footer grid one linkss</h4>
                 <div class="card-header-action">
-                    <a href="{{ route('admin.footer-grid-one.create') }}" class="btn btn-primary">
+                    <a href="{{ route('admin.footer-grid-one.create') }}" class="btn btn-success">
                         <i class="fas fa-plus"></i> Create new
                     </a>
                 </div>

@@ -1,8 +1,8 @@
 <section id="Projects"
     class=" w-full flex flex-col py-[100px] bg-[url('{{ asset('frontend/assets/images/background/background1.png') }}')] bg-cover bg-center bg-no-repeat">
     <div class="flex flex-col gap-[10px] mb-[50px]">
-        <h2 class="font-extrabold text-[50px] leading-[70px] text-center text-white">Great Projects</h2>
-        <p class="text-lg text-center text-white">Working with awesome team from around the world</p>
+        <h2 class="font-extrabold text-[50px] leading-[70px] text-center text-white">{{ $projectTitle->title }}</h2>
+        <p class="text-lg text-center text-white">{{ $projectTitle->sub_title }}</p>
     </div>
     <div class="projects w-full flex flex-col mb-[30px] overflow-hidden">
         <div class="group/slider slider flex flex-nowrap w-max items-center">
