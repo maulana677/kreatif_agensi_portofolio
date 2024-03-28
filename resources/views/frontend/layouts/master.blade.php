@@ -19,6 +19,7 @@
         $footerGridOne = \App\Models\FooterGridOne::where(['status' => 1])->get();
         $footerGridTwo = \App\Models\FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = \App\Models\FooterGridThree::where(['status' => 1])->get();
+        $footerGridFour = \App\Models\FooterGridFour::where(['status' => 1])->get();
 
         $footerGridOneTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_one_title',
@@ -28,6 +29,9 @@
         ])->first();
         $footerGridThreeTitle = \App\Models\FooterTitle::where([
             'key' => 'grid_three_title',
+        ])->first();
+        $footerGridFourTitle = \App\Models\FooterTitle::where([
+            'key' => 'grid_four_title',
         ])->first();
     @endphp
 

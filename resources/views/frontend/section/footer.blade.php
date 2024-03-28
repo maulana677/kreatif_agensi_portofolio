@@ -45,18 +45,12 @@
                 @endforeach
             </div>
             <div class="flex flex-col gap-3">
-                <p class="font-bold text-lg">Connect</p>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
-                        src="{{ asset('frontend/assets/images/icons/call.svg') }}" alt="icon">+1 2208
-                    1996</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
-                        src="{{ asset('frontend/assets/images/icons/dribbble.svg') }}"
-                        alt="icon">buildwithangga</a>
-                <a href=""
-                    class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
-                        src="{{ asset('frontend/assets/images/icons/sms.svg') }}" alt="icon">team@bwa.com</a>
+                <p class="font-bold text-lg">{{ @$footerGridFourTitle->value }}</p>
+                @foreach ($footerGridFour as $gridFour)
+                    <a href="{{ $gridFour->url }}"
+                        class="font-medium hover:font-semibold hover:text-portto-light-gold transition-all duration-300 flex items-center gap-[6px]"><img
+                            src="{{ asset($gridFour->logo) }}" alt="icon">{{ $gridFour->name }}</a>
+                @endforeach
             </div>
         </div>
     </div>

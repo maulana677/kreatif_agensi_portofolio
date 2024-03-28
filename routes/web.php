@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FooterGridFourController;
 use App\Http\Controllers\Admin\FooterGridOneController;
 use App\Http\Controllers\Admin\FooterGridThreeController;
 use App\Http\Controllers\Admin\FooterGridTwoController;
@@ -100,4 +101,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     // route Footer Grid Three
     Route::post('footer-grid-three-title', [FooterGridThreeController::class, 'handleTitle'])->name('footer-grid-three-title');
     Route::resource('footer-grid-three', FooterGridThreeController::class);
+
+    // route Footer Grid Four
+    Route::post('footer-grid-four-title', [FooterGridFourController::class, 'handleTitle'])->name('footer-grid-four-title');
+    Route::resource('footer-grid-four', FooterGridFourController::class);
 });

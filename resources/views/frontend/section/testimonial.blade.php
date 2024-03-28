@@ -1,7 +1,7 @@
 <section id="Testimonials" class="bg-[#F4F5F8]">
     <div class="container max-w-[1130px] mx-auto pt-[180px] pb-[100px]">
-        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">I Have Delivered Success <br>For All My
-            Clients</h2>
+        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">Our client Feedback</h2>
+        <p class="font-medium text-[20px] leading-[40px] text-center">Expressions of Satisfaction from Our Clients</p>
         <div class="grid grid-cols-2 gap-[30px] mt-[50px]">
             <div class="card-testi bg-white rounded-[30px] flex flex-col p-5 gap-5">
                 <div class="h-[40px] flex shrink-0">
