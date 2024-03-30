@@ -1,8 +1,9 @@
 <section id="Workflow" class="container max-w-[1130px] mx-auto pt-[100px] pb-[200px] relative">
-    <div class="flex flex-col gap-[50px] justify-center">
-        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">My Workflow Suitable <br>For Any Project
+    <div class="container max-w-[1130px] mx-auto pt-[10px] pb-[10px]">
+        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">My Workflow Suitable For Any Project
         </h2>
-        <div class="flex justify-between items-center">
+        <p class="font-medium text-[20px] leading-[40px] text-center">Expressions of Satisfaction from Our Clients</p>
+        <div class="flex justify-between items-center pt-[100px]">
             <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
                 <div class="flex-none">
                     <img src="{{ asset('frontend/assets/images/icons/messages-notif.svg') }}" alt="icon">
