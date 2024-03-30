@@ -17,6 +17,7 @@ use App\Http\Controllers\Admin\ProjectOrderController;
 use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectSectionSettingController;
 use App\Http\Controllers\Admin\ProjectToolController;
+use App\Http\Controllers\Admin\RunningLogoController;
 use App\Http\Controllers\Admin\SmallTitleController;
 use App\Http\Controllers\Admin\TestimonialSectionSettingController;
 use App\Http\Controllers\Admin\ToolController;
@@ -64,6 +65,8 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
     /** Hero Route */
     Route::resource('hero', HeroController::class);
     Route::resource('small-title', SmallTitleController::class);
+
+    Route::resource('hero-running-logo', RunningLogoController::class);
 
     /** Project Category Route */
     Route::resource('projects-category', ProjectCategoryController::class);

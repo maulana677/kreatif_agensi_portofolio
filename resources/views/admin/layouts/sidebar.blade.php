@@ -60,7 +60,8 @@
                     <span>Projects</span>
                 </a>
             </li>  --}}
-            <li class="nav-item dropdown {{ setSidebarActive(['admin.small-title.*', 'admin.hero.*']) }}">
+            <li
+                class="nav-item dropdown {{ setSidebarActive(['admin.small-title.*', 'admin.hero.*', 'admin.hero-running-logo.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i>
                     <span>Hero</span></a>
                 <ul class="dropdown-menu">
@@ -69,6 +70,9 @@
                     </li>
                     <li class="{{ setSidebarActive(['admin.hero.*']) }}"><a class="nav-link"
                             href="{{ route('admin.hero.index') }}">Hero section</a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.hero-running-logo.*']) }}"><a class="nav-link"
+                            href="{{ route('admin.hero-running-logo.index') }}">Hero Running Logo</a>
                     </li>
                 </ul>
             </li>
