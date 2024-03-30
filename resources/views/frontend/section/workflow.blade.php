@@ -1,8 +1,8 @@
 <section id="Workflow" class="container max-w-[1130px] mx-auto pt-[100px] pb-[200px] relative">
     <div class="container max-w-[1130px] mx-auto pt-[10px] pb-[10px]">
-        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">My Workflow Suitable For Any Project
+        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">{{ $workflowTitle->title }}
         </h2>
-        <p class="font-medium text-[20px] leading-[40px] text-center">Expressions of Satisfaction from Our Clients</p>
+        <p class="font-medium text-[20px] leading-[40px] text-center">{{ $workflowTitle->sub_title }}</p>
         <div class="flex justify-between items-center pt-[100px]">
             <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
                 <div class="flex-none">

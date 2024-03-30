@@ -18,6 +18,7 @@ use App\Models\ProjectOrder;
 use App\Models\ProjectScreenshot;
 use App\Models\ProjectSectionSetting;
 use App\Models\SmallTitle;
+use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -33,6 +34,7 @@ class HomeController extends Controller
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
         $socialLinks = FooterSocialLink::where('status', 1)->get();
         $projectTitle = ProjectSectionSetting::first();
+        $workflowTitle = WorkflowSectionSetting::first();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -64,6 +66,7 @@ class HomeController extends Controller
             'footerGridFourTitle' => $footerGridFourTitle,
             'socialLinks' => $socialLinks,
             'projectTitle' => $projectTitle,
+            'workflowTitle' => $workflowTitle,
         ]);
     }
 
@@ -74,6 +77,9 @@ class HomeController extends Controller
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
+        $socialLinks = FooterSocialLink::where('status', 1)->get();
+        $projectTitle = ProjectSectionSetting::first();
+        $workflowTitle = WorkflowSectionSetting::first();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -100,6 +106,9 @@ class HomeController extends Controller
             'footerGridTwoTitle' => $footerGridTwoTitle,
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
+            'socialLinks' => $socialLinks,
+            'projectTitle' => $projectTitle,
+            'workflowTitle' => $workflowTitle,
         ]);
     }
 
@@ -110,6 +119,7 @@ class HomeController extends Controller
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
+        $socialLinks = FooterSocialLink::where('status', 1)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -135,6 +145,7 @@ class HomeController extends Controller
             'footerGridTwoTitle' => $footerGridTwoTitle,
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
+            'socialLinks' => $socialLinks,
         ]);
     }
 
@@ -145,6 +156,7 @@ class HomeController extends Controller
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
+        $socialLinks = FooterSocialLink::where('status', 1)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -170,6 +182,7 @@ class HomeController extends Controller
             'footerGridTwoTitle' => $footerGridTwoTitle,
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
+            'socialLinks' => $socialLinks,
         ]);
     }
 
@@ -181,6 +194,7 @@ class HomeController extends Controller
         $footerGridTwo = FooterGridTwo::where(['status' => 1])->get();
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
+        $socialLinks = FooterSocialLink::where('status', 1)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -206,6 +220,7 @@ class HomeController extends Controller
             'footerGridTwoTitle' => $footerGridTwoTitle,
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
+            'socialLinks' => $socialLinks,
         ]);
     }
 
