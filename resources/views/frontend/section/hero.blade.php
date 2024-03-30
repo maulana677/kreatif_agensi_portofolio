@@ -24,73 +24,27 @@
         <div class="group/slider flex flex-nowrap w-max items-center">
             <div
                 class="logo-container animate-[slide_25s_linear_infinite] group-hover/slider:pause-animate flex gap-[70px] pl-[70px] items-center flex-nowrap">
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
+                @forelse($runningLogo as $index => $runningLogos)
+                    @if ($index < 6)
+                        <div class="flex w-fit h-[40px] shrink-0">
+                            <img src="{{ asset($runningLogos->icon) }}" class="w-full h-full object-contain"
+                                alt="logo">
+                        </div>
+                    @endif
+                @empty
+                @endforelse
             </div>
             <div
                 class="logo-container animate-[slide_25s_linear_infinite] group-hover/slider:pause-animate  flex gap-[70px] pl-[70px] items-center flex-nowrap ">
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum1.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
-                <div class="flex w-fit h-[40px] shrink-0">
-                    <img src="{{ asset('frontend/assets/images/logos/logoipsum2.png') }}"
-                        class="w-full h-full object-contain" alt="logo">
-                </div>
+                @forelse($runningLogo as $index => $runningLogos)
+                    @if ($index < 6)
+                        <div class="flex w-fit h-[40px] shrink-0">
+                            <img src="{{ asset($runningLogos->icon) }}" class="w-full h-full object-contain"
+                                alt="logo">
+                        </div>
+                    @endif
+                @empty
+                @endforelse
             </div>
         </div>
     </div>

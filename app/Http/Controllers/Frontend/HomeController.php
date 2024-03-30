@@ -17,6 +17,7 @@ use App\Models\ProjectCategory;
 use App\Models\ProjectOrder;
 use App\Models\ProjectScreenshot;
 use App\Models\ProjectSectionSetting;
+use App\Models\RunningLogo;
 use App\Models\SmallTitle;
 use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
@@ -50,9 +51,11 @@ class HomeController extends Controller
         ])->first();
 
         $projects = Project::orderBy('id', 'desc')->take(6)->get();
+        $runningLogo = RunningLogo::orderBy('id', 'desc')->take(7)->get();
 
         return view('frontend.index', [
             'projects' => $projects,
+            'runningLogo' => $runningLogo,
             'smallTitles' => $smallTitles,
             'hero' => $hero,
             'footerInfo' => $footerInfo,

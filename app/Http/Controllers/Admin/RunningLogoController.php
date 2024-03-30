@@ -59,7 +59,8 @@ class RunningLogoController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $runningLogo = RunningLogo::findOrFail($id);
+        return view('admin.hero-running-logo.edit', compact('runningLogo'));
     }
 
     /**
@@ -67,7 +68,19 @@ class RunningLogoController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate([
+            'icon' => ['required', 'image', 'max:5000'],
+        ]);
+
+        $runningLogo = RunningLogo::findOrFail($id);
+        /** Handle Image Upload */
+        $imagePath = $this->uploadImage($request, 'icon', $runningLogo->icon);
+
+        $runningLogo->icon = !empty($imagePath) ? $imagePath : $runningLogo->icon;
+        $runningLogo->save();
+
+        toastr()->success('Icon Updated Successfully!');
+        return redirect()->route('admin.hero-running-logo.index');
     }
 
     /**
@@ -75,6 +88,13 @@ class RunningLogoController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        try {
+            $runningLogo = RunningLogo::findOrFail($id);
+            $this->removeImage($runningLogo->icon);
+            $runningLogo->delete();
+            return response(['status' => 'success', 'message' => 'Deleted Successfully!']);
+        } catch (\Exception $e) {
+            return response(['status' => 'error', 'message' => 'something went wrong!']);
+        }
     }
 }

@@ -32,7 +32,8 @@
                                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"
                                         for="">Logo</label>
                                     <div class="col-sm-12 col-md-7">
-                                        <img src="{{ asset($footerSocialLink->icon) }}" width="100px" alt="">
+                                        <img src="{{ asset($footerSocialLink->icon) }}" width="100px" alt=""
+                                            class="mb-2">
                                         <input type="file" name="logo" class="form-control">
                                     </div>
                                 </div>
