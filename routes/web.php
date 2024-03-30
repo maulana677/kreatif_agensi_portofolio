@@ -18,6 +18,7 @@ use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectSectionSettingController;
 use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\SmallTitleController;
+use App\Http\Controllers\Admin\TestimonialSectionSettingController;
 use App\Http\Controllers\Admin\ToolController;
 use App\Http\Controllers\Admin\WorkflowSectionSettingController;
 use Illuminate\Support\Facades\Route;
@@ -117,4 +118,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** Workflow Section Setting Route */
     Route::resource('workflow-section-setting', WorkflowSectionSettingController::class);
+
+    /** Testimonial Section Setting Route */
+    Route::resource('testimonial-section-setting', TestimonialSectionSettingController::class);
 });

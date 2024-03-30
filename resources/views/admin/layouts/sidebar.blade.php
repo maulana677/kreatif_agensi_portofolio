@@ -125,6 +125,18 @@
                 </ul>
             </li>
 
+            <li class="dropdown {{ setSidebarActive(['admin.testimonial-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
+                    <span>Testimonial</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setSidebarActive(['admin.testimonial-section-setting.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.testimonial-section-setting.index') }}">
+                            Section Setting
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
             <li
                 class="dropdown {{ setSidebarActive(['admin.footer-info.*', 'admin.footer-grid-one.*', 'admin.footer-grid-two.*', 'admin.footer-grid-three.*', 'admin.footer-grid-four.*', 'admin.footer-social.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
