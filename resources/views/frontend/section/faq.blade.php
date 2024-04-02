@@ -2,15 +2,14 @@
     <div class="flex gap-[70px] items-center pt-[100px] pb-[150px]">
         <div class="flex flex-col gap-[30px]">
             <div class="w-20 h-20 flex shrink-0 rounded-full bg-portto-purple items-center justify-center">
-                <img src="{{ asset('frontend/assets/images/icons/messages.svg') }}" alt="icon">
+                <img src="{{ asset($faqSectionTitle->logo) }}" alt="icon">
             </div>
             <div class="flex flex-col gap-[10px]">
-                <h2 class="font-extrabold text-[50px] leading-[70px]">Frequently Asked Questions</h2>
-                <p class="text-lg text-[#878C9C]">If you have any question please contact me.</p>
+                <h2 class="font-extrabold text-[50px] leading-[70px]">{{ $faqSectionTitle->title }}</h2>
+                <p class="text-lg text-[#878C9C]">{{ $faqSectionTitle->sub_title }}</p>
             </div>
             <a href="{{ route('home.book') }}"
-                class="bg-portto-black font-bold text-lg text-white rounded-full p-[14px_30px] w-fit transition-all duration-300 hover:bg-white hover:text-portto-black hover:ring hover:ring-portto-black">Contact
-                Me</a>
+                class="bg-portto-black font-bold text-lg text-white rounded-full p-[14px_30px] w-fit transition-all duration-300 hover:bg-white hover:text-portto-black hover:ring hover:ring-portto-black">{{ $faqSectionTitle->btn_text }}</a>
         </div>
         <div class="flex flex-col gap-[30px] w-[603px] shrink-0">
             <div class="flex flex-col p-5 rounded-2xl bg-[#F4F5F8] w-full">

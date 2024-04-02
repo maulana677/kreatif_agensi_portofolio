@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqSectionSettingController;
 use App\Http\Controllers\Admin\FooterGridFourController;
 use App\Http\Controllers\Admin\FooterGridOneController;
 use App\Http\Controllers\Admin\FooterGridThreeController;
@@ -122,4 +123,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** Testimonial Section Setting Route */
     Route::resource('testimonial-section-setting', TestimonialSectionSettingController::class);
+
+    /** faq Section Setting Route */
+    Route::resource('faq-section-setting', FaqSectionSettingController::class);
 });

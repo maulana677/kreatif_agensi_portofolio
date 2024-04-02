@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\FaqSectionSetting;
 use App\Models\FooterGridFour;
 use App\Models\FooterGridOne;
 use App\Models\FooterGridThree;
@@ -36,6 +37,8 @@ class HomeController extends Controller
         $socialLinks = FooterSocialLink::where('status', 1)->get();
         $projectTitle = ProjectSectionSetting::first();
         $workflowTitle = WorkflowSectionSetting::first();
+        $faqSectionTitle = FaqSectionSetting::first();
+
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -70,6 +73,7 @@ class HomeController extends Controller
             'socialLinks' => $socialLinks,
             'projectTitle' => $projectTitle,
             'workflowTitle' => $workflowTitle,
+            'faqSectionTitle' => $faqSectionTitle,
         ]);
     }
 
