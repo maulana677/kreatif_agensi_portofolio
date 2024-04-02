@@ -9,9 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
+use App\Traits\FileUploadTrait;
 
 class ProfileController extends Controller
 {
+    use FileUploadTrait;
+
     /**
      * Display the user's profile form.
      */
@@ -27,15 +30,17 @@ class ProfileController extends Controller
      */
     public function update(ProfileUpdateRequest $request): RedirectResponse
     {
-        $request->user()->fill($request->validated());
+        $user = Auth::user();
 
-        if ($request->user()->isDirty('email')) {
-            $request->user()->email_verified_at = null;
-        }
+        $imagePath = $this->uploadImage($request, 'avatar');
 
-        $request->user()->save();
-        toastr()->success('Data Updated Successfully');
-        return Redirect::route('profile.edit')->with('status', 'profile-updated');
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->avatar = isset($imagePath) ? $imagePath : $user->avatar;
+        $user->save();
+
+        toastr('Updated Successfully!', 'success');
+        return redirect()->back();
     }
 
     /**

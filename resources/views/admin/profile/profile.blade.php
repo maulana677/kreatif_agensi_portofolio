@@ -23,10 +23,16 @@
                             <h4>Profile Information</h4>
                         </div>
                         <div class="card-body">
-                            <form action="{{ route('profile.update') }}" method="post">
+                            <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('patch')
                                 <div class="row">
+                                    <div class="form-group col-12">
+                                        <div id="image-preview" class="image-preview">
+                                            <label for="image-upload" id="image-label">Choose File</label>
+                                            <input class="form-control" type="file" name="avatar" id="image-upload" />
+                                        </div>
+                                    </div>
                                     <div class="form-group col-md-6 col-12">
                                         <label>Name</label>
                                         <input type="text" class="form-control" name="name"
@@ -99,3 +105,15 @@
         </div>
     </section>
 @endsection
+
+@push('scripts')
+    <script>
+        $(document).ready(function() {
+            $('.image-preview').css({
+                'background-image': 'url({{ asset(auth()->user()->avatar) }})',
+                'background-size': 'cover',
+                'background-position': 'center center'
+            })
+        })
+    </script>
+@endpush
