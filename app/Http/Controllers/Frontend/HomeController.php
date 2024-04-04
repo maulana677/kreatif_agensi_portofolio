@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Frontend;
 
 use App\Http\Controllers\Controller;
 use App\Models\About;
+use App\Models\Faq;
 use App\Models\FaqSectionSetting;
 use App\Models\FooterGridFour;
 use App\Models\FooterGridOne;
@@ -38,6 +39,8 @@ class HomeController extends Controller
         $projectTitle = ProjectSectionSetting::first();
         $workflowTitle = WorkflowSectionSetting::first();
         $faqSectionTitle = FaqSectionSetting::first();
+        $faqQuestion = Faq::orderBy('id', 'asc')->take(3)->get();
+        // $faqQuestion = Faq::all();
 
 
         $footerGridOneTitle = FooterTitle::where([
@@ -74,6 +77,7 @@ class HomeController extends Controller
             'projectTitle' => $projectTitle,
             'workflowTitle' => $workflowTitle,
             'faqSectionTitle' => $faqSectionTitle,
+            'faqQuestion' => $faqQuestion,
         ]);
     }
 

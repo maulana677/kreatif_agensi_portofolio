@@ -141,13 +141,18 @@
                 </ul>
             </li>
 
-            <li class="dropdown {{ setSidebarActive(['admin.faq-section-setting.*']) }}">
+            <li class="dropdown {{ setSidebarActive(['admin.faq-section-setting.*', 'admin.faq-question.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>FAQ</span></a>
                 <ul class="dropdown-menu">
                     <li class="{{ setSidebarActive(['admin.faq-section-setting.*']) }}">
                         <a class="nav-link" href="{{ route('admin.faq-section-setting.index') }}">
                             Section Setting
+                        </a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.faq-question.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.faq-question.index') }}">
+                            FAQ Questions
                         </a>
                     </li>
                 </ul>

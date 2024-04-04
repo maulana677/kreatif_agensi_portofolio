@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AboutController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\FaqController;
 use App\Http\Controllers\Admin\FaqSectionSettingController;
 use App\Http\Controllers\Admin\FooterGridFourController;
 use App\Http\Controllers\Admin\FooterGridOneController;
@@ -126,4 +127,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** faq Section Setting Route */
     Route::resource('faq-section-setting', FaqSectionSettingController::class);
+
+    /** faq question Route */
+    Route::resource('faq-question', FaqController::class);
 });
