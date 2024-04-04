@@ -76,10 +76,28 @@
                     </li>
                 </ul>
             </li>
+
             <li class="{{ setSidebarActive(['admin.about.*']) }}">
                 <a class="nav-link" href="{{ route('admin.about.index') }}"><i class="fas fa-stream"></i>
                     <span>About</span>
                 </a>
+            </li>
+
+            <li class="dropdown {{ setSidebarActive(['admin.service-section-setting.*']) }}">
+                <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
+                    <span>Services</span></a>
+                <ul class="dropdown-menu">
+                    <li class="{{ setSidebarActive(['admin.service-section-setting.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.service-section-setting.index') }}">
+                            Section Setting
+                        </a>
+                    </li>
+                    {{--  <li class="{{ setSidebarActive(['admin.faq-question.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.faq-question.index') }}">
+                            FAQ Questions
+                        </a>
+                    </li>  --}}
+                </ul>
             </li>
 
             <li
