@@ -88,10 +88,6 @@ class ProjectController extends Controller
 
     public function destroy($id)
     {
-        // $project = Project::findOrFail($id);
-        // deleteFileIfExist($project->cover);
-        // $project->delete();
-
         try {
             $project = Project::findOrFail($id);
             $this->removeImage($project->cover);

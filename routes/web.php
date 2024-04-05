@@ -20,6 +20,7 @@ use App\Http\Controllers\Admin\ProjectScreenshotController;
 use App\Http\Controllers\Admin\ProjectSectionSettingController;
 use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\RunningLogoController;
+use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
 use App\Http\Controllers\Admin\SmallTitleController;
 use App\Http\Controllers\Admin\TestimonialSectionSettingController;
@@ -71,6 +72,9 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** Service Section Setting Route */
     Route::resource('service-section-setting', ServiceSectionSettingController::class);
+
+    /** Service Route */
+    Route::resource('services', ServicesController::class);
 
     /** Project Category Route */
     Route::resource('projects-category', ProjectCategoryController::class);

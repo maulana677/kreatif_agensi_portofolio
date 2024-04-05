@@ -20,6 +20,8 @@ use App\Models\ProjectOrder;
 use App\Models\ProjectScreenshot;
 use App\Models\ProjectSectionSetting;
 use App\Models\RunningLogo;
+use App\Models\Service;
+use App\Models\ServiceSectionSetting;
 use App\Models\SmallTitle;
 use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
@@ -41,7 +43,8 @@ class HomeController extends Controller
         $faqSectionTitle = FaqSectionSetting::first();
         $faqQuestion = Faq::orderBy('id', 'asc')->take(3)->get();
         // $faqQuestion = Faq::all();
-
+        $serviceSetting = ServiceSectionSetting::first();
+        $service = Service::all();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -78,6 +81,8 @@ class HomeController extends Controller
             'workflowTitle' => $workflowTitle,
             'faqSectionTitle' => $faqSectionTitle,
             'faqQuestion' => $faqQuestion,
+            'serviceSetting' => $serviceSetting,
+            'service' => $service,
         ]);
     }
 

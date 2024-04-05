@@ -92,11 +92,11 @@
                             Section Setting
                         </a>
                     </li>
-                    {{--  <li class="{{ setSidebarActive(['admin.faq-question.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.faq-question.index') }}">
-                            FAQ Questions
+                    <li class="{{ setSidebarActive(['admin.services.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.services.index') }}">
+                            Service
                         </a>
-                    </li>  --}}
+                    </li>
                 </ul>
             </li>
 
