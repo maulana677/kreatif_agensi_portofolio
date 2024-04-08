@@ -13,6 +13,7 @@ use App\Models\FooterGridTwo;
 use App\Models\FooterInfo;
 use App\Models\FooterSocialLink;
 use App\Models\FooterTitle;
+use App\Models\GeneralSetting;
 use App\Models\Hero;
 use App\Models\Project;
 use App\Models\ProjectCategory;
@@ -45,6 +46,8 @@ class HomeController extends Controller
         // $faqQuestion = Faq::all();
         $serviceSetting = ServiceSectionSetting::first();
         $service = Service::all();
+        $generalSetting = GeneralSetting::first();
+        // $seoSetting = SeoSetting::first();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -83,6 +86,7 @@ class HomeController extends Controller
             'faqQuestion' => $faqQuestion,
             'serviceSetting' => $serviceSetting,
             'service' => $service,
+            'generalSetting' => $generalSetting
         ]);
     }
 

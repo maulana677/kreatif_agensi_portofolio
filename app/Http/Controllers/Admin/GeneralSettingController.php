@@ -29,37 +29,14 @@ class GeneralSettingController extends Controller
 
         $setting = GeneralSetting::first();
 
-        if ($request->hasFile('logo')) {
-            if ($setting && File::exists(public_path($setting->logo))) {
-                File::delete(public_path($setting->logo));
-            }
+        $setting = GeneralSetting::first();
+        $logo = handleUpload('logo', $setting);
+        $favicon = handleUpload('favicon', $setting);
 
-            $logo = $request->file('logo');
-            $imageName = rand() . $logo->getClientOriginalName();
-            $logo->move(public_path('/uploads'), $imageName);
-
-            $imagePath = "/uploads/" . $imageName;
-        }
-
-        if ($request->hasFile('favicon')) {
-            if ($setting && File::exists(public_path($setting->favicon))) {
-                File::delete(public_path($setting->favicon));
-            }
-
-            $favicon = $request->file('favicon');
-            $imageName = rand() . $favicon->getClientOriginalName();
-            $favicon->move(public_path('/uploads'), $imageName);
-
-            $imagePath = "/uploads/" . $imageName;
-        }
-
-        GeneralSetting::updateOrCreate(
-            ['id' => $id],
-            [
-                'logo' => isset($imagePath) ? $imagePath : $setting->logo,
-                'favicon' => isset($imagePath) ? $imagePath : $setting->favicon,
-            ]
-        );
+        $generalSetting = GeneralSetting::first();
+        $generalSetting->logo = (!empty($logo)) ? $logo : $setting->logo;
+        $generalSetting->favicon = (!empty($favicon)) ? $favicon : $setting->favicon;
+        $generalSetting->save();
 
         toastr()->success('General Setting Updated Successfully!');
         return redirect()->back();
