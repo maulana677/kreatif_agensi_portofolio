@@ -136,6 +136,8 @@ class HomeController extends Controller
         $footerGridThree = FooterGridThree::where(['status' => 1])->get();
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
         $socialLinks = FooterSocialLink::where('status', 1)->get();
+        $serviceSetting = ServiceSectionSetting::first();
+        $service = Service::all();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -162,6 +164,8 @@ class HomeController extends Controller
             'footerGridThreeTitle' => $footerGridThreeTitle,
             'footerGridFourTitle' => $footerGridFourTitle,
             'socialLinks' => $socialLinks,
+            'serviceSetting' => $serviceSetting,
+            'service' => $service,
         ]);
     }
 

@@ -10,6 +10,7 @@ use App\Http\Controllers\Admin\FooterGridThreeController;
 use App\Http\Controllers\Admin\FooterGridTwoController;
 use App\Http\Controllers\Admin\FooterInfoController;
 use App\Http\Controllers\Admin\FooterSocialLinkController;
+use App\Http\Controllers\Admin\GeneralSettingController;
 use App\Http\Controllers\Admin\HeroController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Admin\ProfileController;
@@ -22,6 +23,7 @@ use App\Http\Controllers\Admin\ProjectToolController;
 use App\Http\Controllers\Admin\RunningLogoController;
 use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
+use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SmallTitleController;
 use App\Http\Controllers\Admin\TestimonialSectionSettingController;
 use App\Http\Controllers\Admin\ToolController;
@@ -138,4 +140,13 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     /** faq question Route */
     Route::resource('faq-question', FaqController::class);
+
+    /** Settings Route */
+    Route::get('settings', SettingController::class)->name('settings.index');
+
+    /** General setting Route */
+    Route::resource('general-setting', GeneralSettingController::class);
+
+    // /** Seo setting Route */
+    // Route::resource('seo-setting', SeoSettingController::class);
 });

@@ -87,14 +87,14 @@
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-stream"></i>
                     <span>Services</span></a>
                 <ul class="dropdown-menu">
-                    <li class="{{ setSidebarActive(['admin.service-section-setting.*']) }}">
-                        <a class="nav-link" href="{{ route('admin.service-section-setting.index') }}">
-                            Section Setting
-                        </a>
-                    </li>
                     <li class="{{ setSidebarActive(['admin.services.*']) }}">
                         <a class="nav-link" href="{{ route('admin.services.index') }}">
                             Service
+                        </a>
+                    </li>
+                    <li class="{{ setSidebarActive(['admin.service-section-setting.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.service-section-setting.index') }}">
+                            Section Setting
                         </a>
                     </li>
                 </ul>
@@ -200,6 +200,13 @@
                         <a class="nav-link" href="{{ route('admin.footer-grid-four.index') }}">Footer Grid Four</a>
                     </li>
                 </ul>
+            </li>
+
+            <li class="menu-header">Settings</li>
+            <li class="{{ setSidebarActive(['admin.settings.*']) }}">
+                <a class="nav-link" href="{{ route('admin.settings.index') }}"><i class="fas fa-stream"></i>
+                    <span>Settings</span>
+                </a>
             </li>
         </ul>
     </aside>
