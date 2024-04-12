@@ -24,6 +24,7 @@ use App\Models\RunningLogo;
 use App\Models\Service;
 use App\Models\ServiceSectionSetting;
 use App\Models\SmallTitle;
+use App\Models\Testimonial;
 use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
 
@@ -48,6 +49,7 @@ class HomeController extends Controller
         $service = Service::all();
         $generalSetting = GeneralSetting::first();
         // $seoSetting = SeoSetting::first();
+        $testimonials = Testimonial::all();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -86,7 +88,8 @@ class HomeController extends Controller
             'faqQuestion' => $faqQuestion,
             'serviceSetting' => $serviceSetting,
             'service' => $service,
-            'generalSetting' => $generalSetting
+            'generalSetting' => $generalSetting,
+            'testimonials' => $testimonials,
         ]);
     }
 
