@@ -25,6 +25,7 @@ use App\Http\Controllers\Admin\ServicesController;
 use App\Http\Controllers\Admin\ServiceSectionSettingController;
 use App\Http\Controllers\Admin\SettingController;
 use App\Http\Controllers\Admin\SmallTitleController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\TestimonialSectionSettingController;
 use App\Http\Controllers\Admin\ToolController;
 use App\Http\Controllers\Admin\WorkflowSectionSettingController;
@@ -149,4 +150,7 @@ Route::group(['middleware' => ['auth'], 'prefix' => 'admin', 'as' => 'admin.'], 
 
     // /** Seo setting Route */
     // Route::resource('seo-setting', SeoSettingController::class);
+
+    /** Testimonial Route */
+    Route::resource('testimonial', TestimonialController::class);
 });
