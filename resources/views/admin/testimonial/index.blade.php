@@ -73,6 +73,7 @@
                                         @endforeach
                                     </tbody>
                                 </table>
+                                {!! $item->links() !!}
                             </div>
                         </div>
                     </div>

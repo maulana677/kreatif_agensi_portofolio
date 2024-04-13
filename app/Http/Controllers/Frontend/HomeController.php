@@ -25,6 +25,7 @@ use App\Models\Service;
 use App\Models\ServiceSectionSetting;
 use App\Models\SmallTitle;
 use App\Models\Testimonial;
+use App\Models\TestimonialSectionSetting;
 use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
 
@@ -50,6 +51,11 @@ class HomeController extends Controller
         $generalSetting = GeneralSetting::first();
         // $seoSetting = SeoSetting::first();
         $testimonials = Testimonial::all();
+        $testimonialsSectionTitle = TestimonialSectionSetting::first();
+        $countProject = Project::count();
+        $countCompany = RunningLogo::count();
+        $countTestimonial = Testimonial::count();
+        $countService = Service::count();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -90,6 +96,11 @@ class HomeController extends Controller
             'service' => $service,
             'generalSetting' => $generalSetting,
             'testimonials' => $testimonials,
+            'testimonialsSectionTitle' => $testimonialsSectionTitle,
+            'countProject' => $countProject,
+            'countCompany' => $countCompany,
+            'countTestimonial' => $countTestimonial,
+            'countService' => $countService,
         ]);
     }
 
@@ -187,6 +198,8 @@ class HomeController extends Controller
         $footerGridFour = FooterGridFour::where(['status' => 1])->get();
         $socialLinks = FooterSocialLink::where('status', 1)->get();
         $generalSetting = GeneralSetting::first();
+        $testimonials = Testimonial::all();
+        $testimonialsSectionTitle = TestimonialSectionSetting::first();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -214,6 +227,8 @@ class HomeController extends Controller
             'footerGridFourTitle' => $footerGridFourTitle,
             'socialLinks' => $socialLinks,
             'generalSetting' => $generalSetting,
+            'testimonials' => $testimonials,
+            'testimonialsSectionTitle' => $testimonialsSectionTitle,
         ]);
     }
 

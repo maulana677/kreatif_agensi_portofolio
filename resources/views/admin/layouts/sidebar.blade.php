@@ -72,7 +72,7 @@
                             href="{{ route('admin.hero.index') }}">Hero section</a>
                     </li>
                     <li class="{{ setSidebarActive(['admin.hero-running-logo.*']) }}"><a class="nav-link"
-                            href="{{ route('admin.hero-running-logo.index') }}">Hero Running Logo</a>
+                            href="{{ route('admin.hero-running-logo.index') }}">Hero Company Logo</a>
                     </li>
                 </ul>
             </li>

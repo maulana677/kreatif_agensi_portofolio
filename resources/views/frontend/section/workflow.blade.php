@@ -36,25 +36,25 @@
         </div>
     </div>
     <div
-        class="stats container max-w-[1130px] mx-auto bg-gradient-to-r from-[#FFEDD3] to-[#FFCD83] flex justify-between items-center px-[100px] rounded-[30px] w-full h-[180px] absolute transform -translate-x-1/2 translate-y-1/2 bottom-0 left-1/2">
+        class="stats container max-w-[800px] mx-auto bg-gradient-to-r from-[#FFEDD3] to-[#FFCD83] flex justify-between items-center px-[100px] rounded-[30px] w-full h-[180px] absolute transform -translate-x-1/2 translate-y-1/2 bottom-0 left-1/2">
         <div class="text-center w-fit h-fit">
-            <p class="font-extrabold text-[40px] leading-[60px]">$230M</p>
-            <p class="font-semibold text-lg">Valuation</p>
+            <p class="font-extrabold text-[40px] leading-[60px]">{{ number_format($countTestimonial) }}</p>
+            <p class="font-semibold text-lg">Testimonial</p>
         </div>
         <div class="text-center w-fit h-fit">
-            <p class="font-extrabold text-[40px] leading-[60px]">31,934</p>
+            <p class="font-extrabold text-[40px] leading-[60px]">{{ number_format($countProject) }}</p>
             <p class="font-semibold text-lg">Projects</p>
         </div>
         <div class="text-center w-fit h-fit">
-            <p class="font-extrabold text-[40px] leading-[60px]">245</p>
-            <p class="font-semibold text-lg">Startups IPO</p>
+            <p class="font-extrabold text-[40px] leading-[60px]">{{ number_format($countService) }}</p>
+            <p class="font-semibold text-lg">Services</p>
         </div>
-        <div class="text-center w-fit h-fit">
+        {{--  <div class="text-center w-fit h-fit">
             <p class="font-extrabold text-[40px] leading-[60px]">9/10</p>
             <p class="font-semibold text-lg">Successful</p>
-        </div>
+        </div>  --}}
         <div class="text-center w-fit h-fit">
-            <p class="font-extrabold text-[40px] leading-[60px]">562</p>
+            <p class="font-extrabold text-[40px] leading-[60px]">{{ number_format($countCompany) }}</p>
             <p class="font-semibold text-lg">Companies</p>
         </div>
     </div>

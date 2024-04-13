@@ -1,7 +1,7 @@
 <section id="Testimonials" class="bg-[#F4F5F8]">
     <div class="container max-w-[1130px] mx-auto pt-[180px] pb-[100px]">
-        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">Our client Feedback</h2>
-        <p class="font-medium text-[20px] leading-[40px] text-center">Expressions of Satisfaction from Our Clients
+        <h2 class="font-extrabold text-[50px] leading-[70px] text-center">{{ $testimonialsSectionTitle->title }}</h2>
+        <p class="font-medium text-[20px] leading-[40px] text-center">{{ $testimonialsSectionTitle->sub_title }}
         </p>
         <div class="grid grid-cols-2 gap-[30px] mt-[50px]">
             @foreach ($testimonials as $testimonial)
