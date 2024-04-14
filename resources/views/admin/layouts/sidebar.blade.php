@@ -138,6 +138,11 @@
                         class="fas fa-map-signs"></i>
                     <span>Workflow</span></a>
                 <ul class="dropdown-menu">
+                    <li class="{{ setSidebarActive(['admin.workflow.*']) }}">
+                        <a class="nav-link" href="{{ route('admin.workflow.index') }}">
+                            Workflow
+                        </a>
+                    </li>
                     <li class="{{ setSidebarActive(['admin.workflow-section-setting.*']) }}">
                         <a class="nav-link" href="{{ route('admin.workflow-section-setting.index') }}">
                             Section Setting
