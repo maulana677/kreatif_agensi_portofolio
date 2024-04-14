@@ -4,35 +4,17 @@
         </h2>
         <p class="font-medium text-[20px] leading-[40px] text-center">{{ $workflowTitle->sub_title }}</p>
         <div class="flex justify-between items-center pt-[100px]">
-            <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
-                <div class="flex-none">
-                    <img src="{{ asset('frontend/assets/images/icons/messages-notif.svg') }}" alt="icon">
+            @foreach ($workflows as $workflow)
+                <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
+                    <div class="flex-none">
+                        <img src="{{ asset($workflow->icon) }}" alt="icon">
+                    </div>
+                    <div class="flex flex-col gap-[10px] text-center">
+                        <p class="font-extrabold text-[22px] leading-[33px]">{{ $workflow->title }}</p>
+                        <p class="text-lg leading-[34px]">{{ $workflow->sub_title }}</p>
+                    </div>
                 </div>
-                <div class="flex flex-col gap-[10px] text-center">
-                    <p class="font-extrabold text-[22px] leading-[33px]">Research & Validate</p>
-                    <p class="text-lg leading-[34px]">Ensuring all requirements were matching with market
-                        conditions</p>
-                </div>
-            </div>
-            <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
-                <div class="flex-none">
-                    <img src="{{ asset('frontend/assets/images/icons/programming-notif.svg') }}" alt="icon">
-                </div>
-                <div class="flex flex-col gap-[10px] text-center">
-                    <p class="font-extrabold text-[22px] leading-[33px]">Building with Teams</p>
-                    <p class="text-lg leading-[34px]">Working with agile framework to product a better results</p>
-                </div>
-            </div>
-            <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
-                <div class="flex-none">
-                    <img src="{{ asset('frontend/assets/images/icons/like-notif.svg') }}" alt="icon">
-                </div>
-                <div class="flex flex-col gap-[10px] text-center">
-                    <p class="font-extrabold text-[22px] leading-[33px]">Deliver to Clients</p>
-                    <p class="text-lg leading-[34px]">We bring an instant results to the clients so that they are
-                        happys</p>
-                </div>
-            </div>
+            @endforeach
         </div>
     </div>
     <div

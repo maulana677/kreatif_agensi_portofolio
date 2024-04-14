@@ -26,6 +26,7 @@ use App\Models\ServiceSectionSetting;
 use App\Models\SmallTitle;
 use App\Models\Testimonial;
 use App\Models\TestimonialSectionSetting;
+use App\Models\Workflow;
 use App\Models\WorkflowSectionSetting;
 use Illuminate\Http\Request;
 
@@ -56,6 +57,7 @@ class HomeController extends Controller
         $countCompany = RunningLogo::count();
         $countTestimonial = Testimonial::count();
         $countService = Service::count();
+        $workflows = Workflow::all();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -101,6 +103,7 @@ class HomeController extends Controller
             'countCompany' => $countCompany,
             'countTestimonial' => $countTestimonial,
             'countService' => $countService,
+            'workflows' => $workflows,
         ]);
     }
 
