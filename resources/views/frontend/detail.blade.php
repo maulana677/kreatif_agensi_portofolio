@@ -89,31 +89,33 @@
 
 <section id="Featured-testimonial" class="container max-w-[1130px] mx-auto">
     <div class="flex gap-[100px] items-center px-[65px] pt-[100px]">
-        <div class="flex flex-col gap-5 relative">
-            <div class="flex w-[200px] h-[250px] rounded-[30px] shrink-0 overflow-hidden z-10">
-                <img src="{{ asset('frontend/assets/images/photo/photo5.png') }}" alt="photo">
+        @foreach ($testimonials as $testimonial)
+            <div class="flex flex-col gap-5 relative">
+                <div class="flex w-[200px] h-[250px] rounded-[30px] shrink-0 overflow-hidden z-10">
+                    <img src="{{ asset($testimonial->avatar) }}" alt="photo">
+                </div>
+                <div class="flex flex-col gap-[6px] text-center">
+                    <p class="font-bold text-2xl">{{ $testimonial->name }}</p>
+                    <p class="text-xl text-[#878C9C]">{{ $testimonial->job_title }}</p>
+                </div>
+                <img src="{{ asset('frontend/assets/images/icons/quote.svg') }}"
+                    class="absolute transform -translate-x-1/2 -translate-y-1/2 left-[21px] top-[14px]" alt="icon">
             </div>
-            <div class="flex flex-col gap-[6px] text-center">
-                <p class="font-bold text-2xl">Shirley Pop</p>
-                <p class="text-xl text-[#878C9C]">Founder Bwalajar</p>
+            <div class="flex flex-col gap-[50px]">
+                <div class="flex shrink-0">
+                    <img src="{{ asset($testimonial->logo) }}" alt="logo">
+                </div>
+                <p class="font-semibold text-[32px] leading-[60px]">{{ $testimonial->testimonial_text }}
+                </p>
+                <div class="flex h-8 w-fit shrink-0">
+                    @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $testimonial->rating)
+                            <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
+                        @endif
+                    @endfor
+                </div>
             </div>
-            <img src="{{ asset('frontend/assets/images/icons/quote.svg') }}"
-                class="absolute transform -translate-x-1/2 -translate-y-1/2 left-[21px] top-[14px]" alt="icon">
-        </div>
-        <div class="flex flex-col gap-[50px]">
-            <div class="flex shrink-0">
-                <img src="{{ asset('frontend/assets/images/logos/logo-testi5.svg') }}" alt="logo">
-            </div>
-            <p class="font-semibold text-[32px] leading-[60px]">She helped us to build our first prototype to win our
-                investor and early users heart that generate huge attraction. Will hire her back again anytime soon.</p>
-            <div class="flex h-8 w-fit shrink-0">
-                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 

@@ -61,16 +61,10 @@
                                                     class="img-thumbnail">
                                             </td>
                                             <td>
-                                                {{--  <form action="{{ route('admin.projects.screenshots.destroy', $item->id) }}"
-                                                    method="POST">
-                                                    @csrf
-                                                    @method('DELETE')
-                                                    <button type="submit" class='btn btn-danger mx-2'><i
-                                                            class='fas fa-trash'></i> Hapus</button>
-
-                                                </form>  --}}
-                                                <a href='{{ route('admin.projects-screenshots.destroy', $item->id) }}'
-                                                    class='btn btn-danger mx-2'><i class='fas fa-trash'></i> Delete</a>
+                                                <a href="{{ route('admin.projects-screenshots.destroy', $item->id) }}"
+                                                    class="btn btn-danger delete-item"><i class="fas fa-trash-alt"></i></a>
+                                                {{--  <a href='{{ route('admin.projects-screenshots.destroy', $item->id) }}'
+                                                    class='btn btn-danger mx-2'><i class='fas fa-trash'></i> Delete</a>  --}}
                                             </td>
                                         </tr>
                                     @empty

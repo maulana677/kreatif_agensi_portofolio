@@ -7,21 +7,21 @@
     <section id="Content" class="bg-portto-black flex min-h-screen">
         <div
             class="w-[660px] min-h-screen flex flex-col p-[30px_40px] justify-end overflow-hidden bg-[url('{{ asset('frontend/assets/images/background/side-image.png') }}')] bg-cover bg-center bg-no-repeat">
-            <div class="flex flex-col bg-white p-[30px] gap-5 rounded-[30px] w-[580px]">
-                <div class="flex h-10 items-start overflow-hidden">
-                    <img src="{{ asset('frontend/assets/images/logos/logo-testi5.svg') }}" class="h-full object-contain"
-                        alt="photo">
+            @foreach ($testimonials as $testimonial)
+                <div class="flex flex-col bg-white p-[30px] gap-5 rounded-[30px] w-[580px]">
+                    <div class="flex h-10 items-start overflow-hidden">
+                        <img src="{{ asset($testimonial->logo) }}" class="h-full object-contain" alt="photo">
+                    </div>
+                    <p class="font-semibold text-[22px] leading-[40px]">{{ $testimonial->testimonial_text }}</p>
+                    <div class="flex h-8 w-fit shrink-0">
+                        @for ($i = 1; $i <= 5; $i++)
+                            @if ($i <= $testimonial->rating)
+                                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
+                            @endif
+                        @endfor
+                    </div>
                 </div>
-                <p class="font-semibold text-[22px] leading-[40px]">She helped us to build our first prototype to win our
-                    investor and early users heart that generate huge attraction.</p>
-                <div class="flex h-8 w-fit shrink-0">
-                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                </div>
-            </div>
+            @endforeach
         </div>
         <div
             class="flex flex-col gap-[50px] items-center justify-center mx-auto py-4 bg-[url('{{ asset('frontend/assets/images/Ellipse.svg') }}')] bg-center bg-no-repeat bg-[length:540px]">

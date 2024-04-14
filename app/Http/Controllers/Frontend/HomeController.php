@@ -114,6 +114,10 @@ class HomeController extends Controller
         $socialLinks = FooterSocialLink::where('status', 1)->get();
         $projectTitle = ProjectSectionSetting::first();
         $workflowTitle = WorkflowSectionSetting::first();
+        $generalSetting = GeneralSetting::first();
+        $faqSectionTitle = FaqSectionSetting::first();
+        $faqQuestion = Faq::orderBy('id', 'asc')->take(3)->get();
+        $testimonials = Testimonial::orderBy('id', 'asc')->take(1)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',
@@ -143,6 +147,10 @@ class HomeController extends Controller
             'socialLinks' => $socialLinks,
             'projectTitle' => $projectTitle,
             'workflowTitle' => $workflowTitle,
+            'generalSetting' => $generalSetting,
+            'faqSectionTitle' => $faqSectionTitle,
+            'faqQuestion' => $faqQuestion,
+            'testimonials' => $testimonials,
         ]);
     }
 
@@ -275,7 +283,14 @@ class HomeController extends Controller
     public function book()
     {
         $projectsCategories = ProjectCategory::all();
-        return view('frontend.book', compact('projectsCategories'));
+        $generalSetting = GeneralSetting::first();
+        $testimonials = Testimonial::orderBy('id', 'asc')->take(1)->get();
+
+        return view('frontend.book', [
+            'projectsCategories' => $projectsCategories,
+            'generalSetting' => $generalSetting,
+            'testimonials' => $testimonials
+        ]);
     }
 
     public function storeBook(Request $request)

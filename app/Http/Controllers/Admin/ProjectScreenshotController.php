@@ -37,6 +37,14 @@ class ProjectScreenshotController extends Controller
         return redirect()->back();
     }
 
+    public function show(string $id)
+    {
+        // $screenshot = ProjectScreenshot::find($id);
+        // return view('admin.project-screenshots.show', [
+        //     'screenshot' => $screenshot
+        // ]);
+    }
+
     public function destroy(string $id)
     {
         try {

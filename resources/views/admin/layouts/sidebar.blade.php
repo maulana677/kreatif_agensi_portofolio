@@ -17,10 +17,7 @@
                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon">
                     <i class="far fa-user"></i> Profile
                 </a>
-                <a href="features-activities.html" class="dropdown-item has-icon">
-                    <i class="fas fa-bolt"></i> Activities
-                </a>
-                <a href="features-settings.html" class="dropdown-item has-icon">
+                <a href="{{ route('admin.settings.index') }}" class="dropdown-item has-icon">
                     <i class="fas fa-cog"></i> Settings
                 </a>
                 <div class="dropdown-divider"></div>
@@ -83,6 +80,12 @@
                 </a>
             </li>
 
+            <li class="{{ setSidebarActive(['admin.tools.*']) }}">
+                <a class="nav-link" href="{{ route('admin.tools.index') }}"><i class="fas fa-wrench"></i>
+                    <span>Tools</span>
+                </a>
+            </li>
+
             <li class="dropdown {{ setSidebarActive(['admin.service-section-setting.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-headphones"></i>
                     <span>Services</span></a>
@@ -121,12 +124,6 @@
                         </a>
                     </li>
                 </ul>
-            </li>
-
-            <li class="{{ setSidebarActive(['admin.tools.*']) }}">
-                <a class="nav-link" href="{{ route('admin.tools.index') }}"><i class="fas fa-wrench"></i>
-                    <span>Tools</span>
-                </a>
             </li>
 
             <li class="{{ setSidebarActive(['admin.projects-orders.*']) }}">
