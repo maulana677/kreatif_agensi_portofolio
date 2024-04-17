@@ -11,7 +11,6 @@ class GeneralSetting extends Model
 
     protected $fillable = [
         'logo',
-        'footer_logo',
         'favicon'
     ];
 }
