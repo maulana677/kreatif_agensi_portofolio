@@ -133,7 +133,7 @@
                 </a>
             </li>
 
-            <li class="dropdown {{ setSidebarActive(['admin.workflow-section-setting.*']) }}">
+            <li class="dropdown {{ setSidebarActive(['admin.workflow-section-setting.*', 'admin.workflow.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i
                         class="fas fa-map-signs"></i>
                     <span>Workflow</span></a>

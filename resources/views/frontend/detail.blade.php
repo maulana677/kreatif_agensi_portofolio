@@ -81,7 +81,7 @@
                             alt="icon eye">
                     </a>
                 @empty
-                    <p>Belum ada software ditambahkan</p>
+                    <p>Belum ada screenshots ditambahkan</p>
                 @endempty
         </div>
     </div>

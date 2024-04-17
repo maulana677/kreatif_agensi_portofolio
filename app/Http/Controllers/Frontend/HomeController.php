@@ -48,7 +48,7 @@ class HomeController extends Controller
         $faqQuestion = Faq::orderBy('id', 'asc')->take(3)->get();
         // $faqQuestion = Faq::all();
         $serviceSetting = ServiceSectionSetting::first();
-        $service = Service::all();
+        $service = Service::orderBy('id', 'asc')->take(2)->get();
         $generalSetting = GeneralSetting::first();
         // $seoSetting = SeoSetting::first();
         $testimonials = Testimonial::all();
