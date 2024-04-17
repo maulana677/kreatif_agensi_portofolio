@@ -86,7 +86,7 @@
                 </a>
             </li>
 
-            <li class="dropdown {{ setSidebarActive(['admin.service-section-setting.*']) }}">
+            <li class="dropdown {{ setSidebarActive(['admin.service-section-setting.*', 'admin.services.*']) }}">
                 <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-headphones"></i>
                     <span>Services</span></a>
                 <ul class="dropdown-menu">
