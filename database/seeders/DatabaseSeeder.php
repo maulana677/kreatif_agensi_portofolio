@@ -30,5 +30,6 @@ class DatabaseSeeder extends Seeder
         \App\Models\TestimonialSectionSetting::factory(1)->create();
         \App\Models\GeneralSetting::factory(1)->create();
         \App\Models\FaqSectionSetting::factory(1)->create();
+        \App\Models\FooterInfo::factory(1)->create();
     }
 }
