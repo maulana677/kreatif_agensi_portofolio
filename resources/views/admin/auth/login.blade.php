@@ -40,7 +40,7 @@
                         class="col-12 col-sm-8 offset-sm-2 col-md-6 offset-md-3 col-lg-6 offset-lg-3 col-xl-4 offset-xl-4">
                         <div class="login-brand">
                             <div class="container" style="{background-color: rgb(215, 155, 14)}">
-                                <img src="{{ asset('admin/assets/img/logo.svg') }}" alt="logo" height="80">
+                                <img src="{{ asset('admin/assets/img/Logo.png') }}" alt="logo" height="80">
                             </div>
                         </div>
 
@@ -56,7 +56,7 @@
                                     <div class="form-group">
                                         <label for="email">Email</label>
                                         <input id="email" type="email" class="form-control" name="email"
-                                            tabindex="1" placeholder="email" required autofocus>
+                                            tabindex="1" required autofocus placeholder="email">
                                         <div class="invalid-feedback">
                                             Please fill in your email
                                         </div>
