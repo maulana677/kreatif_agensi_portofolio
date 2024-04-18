@@ -5,10 +5,10 @@
 @section('content')
     <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
         @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[180px] flex justify-between items-center relative">
+        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[50px] flex justify-between items-center relative">
             <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
-                <h1 class="font-extrabold text-[80px] leading-[90px]">{{ $serviceSetting->title }}</h1>
-                <p class="mb-5">{{ $serviceSetting->sub_title }}</p>
+                <h1 class="font-extrabold text-[80px] leading-[10px]">{{ $serviceSetting->title }}</h1>
+                <p>{{ $serviceSetting->sub_title }}</p>
             </div>
         </div>
     </section>
@@ -16,7 +16,7 @@
     <section id="Services" class="container max-w-[1130px] mx-auto pt-[100px] pb-[100px]">
         <div class="flex flex-col gap-[50px]">
             <div class="flex justify-between items-center">
-                <h2 class="font-extrabold text-[50px] leading-[70px] mt-8">All Service</h2>
+                <h2 class="font-extrabold text-[50px] leading-[50px] mt-8">All Service</h2>
             </div>
             <div class="grid grid-cols-2 gap-[30px]">
                 @foreach ($service as $services)

@@ -5,10 +5,10 @@
 @section('content')
     <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
         @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[120px] flex justify-between items-center relative">
+        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[50px] flex justify-between items-center relative">
             <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
-                <h1 class="font-extrabold text-[80px] leading-[90px]">My Freelance Testimonials</h1>
-                <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae hic repellendus porro?</p>
+                <h1 class="font-extrabold text-[80px] leading-[10px]">{{ $testimonialsSectionTitle->title }}</h1>
+                <p class="mb-5">{{ $testimonialsSectionTitle->sub_title }}</p>
             </div>
             {{--  <div class="flex max-w-[471px] max-h-[567px] z-10">
                 <img src="{{ asset('frontend/assets/images/hero-image.png') }}" class="w-full h-full object-contain"
