@@ -51,7 +51,7 @@ class HomeController extends Controller
         $service = Service::orderBy('id', 'asc')->take(2)->get();
         $generalSetting = GeneralSetting::first();
         // $seoSetting = SeoSetting::first();
-        $testimonials = Testimonial::all();
+        $testimonials = Testimonial::orderBy('id', 'asc')->take(6)->get();
         $testimonialsSectionTitle = TestimonialSectionSetting::first();
         $countProject = Project::count();
         $countCompany = RunningLogo::count();

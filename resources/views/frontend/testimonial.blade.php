@@ -5,7 +5,7 @@
 @section('content')
     <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
         @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[180px] flex justify-between items-center relative">
+        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[120px] flex justify-between items-center relative">
             <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
                 <h1 class="font-extrabold text-[80px] leading-[90px]">My Freelance Testimonials</h1>
                 <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae hic repellendus porro?</p>
@@ -18,9 +18,8 @@
     </section>
 
     <section id="Testimonials" class="bg-[#F4F5F8]">
-        <div class="container max-w-[1130px] mx-auto pt-[180px] pb-[100px]">
-            {{--  <h2 class="font-extrabold text-[50px] leading-[70px] text-center">I Have Delivered Success <br>For All My
-                Clients</h2>  --}}
+        <div class="container max-w-[1130px] mx-auto pt-[100px] pb-[100px]">
+            <h2 class="font-extrabold text-[50px] leading-[70px] text-center">All My Clients</h2>
             <div class="grid grid-cols-2 gap-[30px] mt-[50px]">
                 @foreach ($testimonials as $testimonial)
                     <div class="card-testi bg-white rounded-[30px] flex flex-col p-5 gap-5">
