@@ -1,7 +1,7 @@
 <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
     @include('frontend.section.navbar')
     <div class="hero container max-w-[1130px] mx-auto flex justify-between items-center relative">
-        <div class="flex flex-col gap-[50px] mt-[10px] h-fit w-fit text-white z-10">
+        <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10">
             @foreach ($smallTitles as $smallTitle)
                 <p class="font-semibold text-2xl">{{ $smallTitle->title }}</p>
             @endforeach
@@ -14,8 +14,8 @@
                 </a>
             @endif
         </div>
-        <div class="flex max-w-[471px] max-h-[567px] z-10">
-            <img src="{{ asset($hero->image) }}" class="w-full h-full object-contain" alt="hero image">
+        <div class="flex max-w-[471px] z-10">
+            <img src="{{ asset($hero->image) }}" class="w-full h-full object-contain leading-[40px]" alt="hero image">
         </div>
         <img src="{{ asset('frontend/assets/images/Ellipse.svg') }}"
             class="absolute transform -translate-x-1/2 -translate-y-1/2 left-1/2 top-1/2" alt="background icon">
