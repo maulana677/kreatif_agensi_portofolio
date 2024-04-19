@@ -5,7 +5,7 @@
             @foreach ($smallTitles as $smallTitle)
                 <p class="font-semibold text-2xl">{{ $smallTitle->title }}</p>
             @endforeach
-            <h1 class="font-extrabold text-[80px] leading-[90px]">{{ $hero->title }}</h1>
+            <h1 class="font-extrabold text-[80px] leading-[50px]">{{ $hero->title }}</h1>
             <p>{{ $hero->sub_title }}</p>
             @if ($hero->btn_text)
                 <a href="{{ $hero->btn_url }}"
