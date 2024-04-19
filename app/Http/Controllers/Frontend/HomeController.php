@@ -57,7 +57,7 @@ class HomeController extends Controller
         $countCompany = RunningLogo::count();
         $countTestimonial = Testimonial::count();
         $countService = Service::count();
-        $workflows = Workflow::all();
+        $workflows = Workflow::orderBy('id', 'asc')->take(6)->get();
 
         $footerGridOneTitle = FooterTitle::where([
             'key' => 'grid_one_title',

@@ -3,8 +3,10 @@
         <h2 class="font-extrabold text-[50px] leading-[70px] text-center">{{ $workflowTitle->title }}
         </h2>
         <p class="font-medium text-[20px] leading-[40px] text-center">{{ $workflowTitle->sub_title }}</p>
-        <div class="flex justify-between items-center pt-[100px]">
-            @foreach ($workflows as $workflow)
+        {{--  <div class="flex justify-between items-center pt-[100px]">  --}}
+        <div class="grid grid-cols-6 gap-[30px] mt-[50px]">
+
+            @forelse ($workflows as $workflow)
                 <div class="w-[350px] flex flex-col shrink-0 gap-[30px] items-center">
                     <div class="flex-none">
                         <img src="{{ asset($workflow->icon) }}" alt="icon">
@@ -14,8 +16,12 @@
                         <p class="text-lg leading-[34px]">{{ $workflow->sub_title }}</p>
                     </div>
                 </div>
-            @endforeach
+                <br>
+            @empty
+                <p>Tidak ada data</p>
+            @endforelse
         </div>
+        {{--  </div>  --}}
     </div>
     <div
         class="stats container max-w-[800px] mx-auto bg-gradient-to-r from-[#FFEDD3] to-[#FFCD83] flex justify-between items-center px-[100px] rounded-[30px] w-full h-[180px] absolute transform -translate-x-1/2 translate-y-1/2 bottom-0 left-1/2">

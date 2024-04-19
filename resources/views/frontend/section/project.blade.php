@@ -35,6 +35,7 @@
                         </div>
                     @endif
                 @empty
+                    <p>Tidak ada data</p>
                 @endforelse
             </div>
 
