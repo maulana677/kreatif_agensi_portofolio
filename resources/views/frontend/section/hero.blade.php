@@ -1,7 +1,7 @@
 <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
     @include('frontend.section.navbar')
     <div class="hero container max-w-[1130px] mx-auto flex justify-between items-center relative">
-        <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10">
+        <div class="flex flex-col gap-[50px] mt-[100px] h-fit w-fit text-white z-10">
             @foreach ($smallTitles as $smallTitle)
                 <p class="font-semibold text-2xl">{{ $smallTitle->title }}</p>
             @endforeach
