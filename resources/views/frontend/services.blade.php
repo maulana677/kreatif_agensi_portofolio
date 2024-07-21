@@ -38,10 +38,11 @@
     </section>  --}}
 
     @include('frontend.section.navbar')
-    <section id="Header" class="flex flex-col gap-20 bg-portto-black text-white relative py-20">
-        <div class="container max-w-5xl mx-auto flex flex-col items-center text-center">
-            <h1 class="text-5xl font-extrabold">{{ $serviceSetting->title }}</h1>
-            <p class="mt-4 text-xl">{{ $serviceSetting->sub_title }}</p>
+    <section id="Header"
+        class="flex flex-col gap-10 lg:gap-20 bg-portto-black text-white relative py-10 lg:py-20 mt-10 lg:mt-20">
+        <div class="container max-w-4xl mx-auto flex flex-col items-center text-center">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold">{{ $serviceSetting->title }}</h1>
+            <p class="mt-2 sm:mt-4 text-lg sm:text-xl">{{ $serviceSetting->sub_title }}</p>
         </div>
     </section>
 

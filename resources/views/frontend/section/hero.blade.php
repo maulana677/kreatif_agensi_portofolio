@@ -69,43 +69,11 @@
     </div>
 </section>  --}}
 
-<section id="Header" class="flex flex-col gap-24 bg-portto-black relative py-12">
-    <nav class="container mx-auto flex justify-between items-center text-white">
-        <a href="{{ route('home') }}" class="w-40 h-auto">
-            <img src="{{ asset($generalSetting->logo) }}" alt="logo" class="h-10">
-        </a>
-        <div class="hidden lg:flex gap-8 items-center">
-            <ul class="flex gap-8 items-center">
-                <li><a href="{{ route('home') }}"
-                        class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Home</a>
-                </li>
-                <li><a href="{{ route('home.services') }}"
-                        class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Services</a>
-                </li>
-                <li><a href="{{ route('home.testimonials') }}"
-                        class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Testimonials</a>
-                </li>
-                <li><a href="#"
-                        class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">Pricing</a>
-                </li>
-                <li><a href="{{ route('home.about') }}"
-                        class="font-medium text-lg hover:text-portto-light-gold transition-all duration-300">About</a>
-                </li>
-            </ul>
-            <button
-                class="bg-portto-light-gold font-bold text-lg py-2 px-6 rounded-full transition-all duration-300 hover:shadow-portto-light-gold">Hire
-                Me</button>
-        </div>
-        <button id="menu-toggle" class="lg:hidden focus:outline-none">
-            <svg class="h-8 w-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16">
-                </path>
-            </svg>
-        </button>
-    </nav>
+@include('frontend.section.navbar')
+<section id="Header"
+    class="flex flex-col gap-10 lg:gap-20 bg-portto-black text-white relative py-10 lg:py-20 mt-10 lg:mt-20">
 
-    <div class="hero container mx-auto flex flex-col lg:flex-row justify-between items-center text-white relative">
+    <div class="hero container mx-auto flex flex-col lg:flex-row justify-between items-center text-white relative pb-12">
         <div class="flex flex-col gap-6 text-center lg:text-left lg:w-1/2">
             @foreach ($smallTitles as $smallTitle)
                 <p class="font-semibold text-2xl">{{ $smallTitle->title }}</p>
@@ -114,15 +82,17 @@
             <p class="mt-4">{{ $hero->sub_title }}</p>
             @if ($hero->btn_text)
                 <a href="{{ $hero->btn_url }}"
-                    class="font-bold text-[20px] leading-[39px] rounded-[30px] p-[10px_40px] bg-portto-purple w-fit transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]">
+                    class="font-bold text-[20px] leading-[39px] rounded-[30px] p-[10px_40px] bg-portto-purple w-fit transition-all duration-300 hover:shadow-[0_10px_20px_0_#4920E5]
+        block mx-auto lg:mx-0 lg:ml-0">
                     {{ $hero->btn_text }} <span class="dir-part"></span>
                 </a>
             @endif
         </div>
-        <div class="lg:w-1/2 mt-8 lg:mt-0">
-            <img src="{{ asset($hero->image) }}" class="w-full h-full object-contain" alt="hero image">
+        <div class="lg:w-1/3 mt-8 lg:mt-0">
+            <img src="{{ asset($hero->image) }}" class="w-full object-contain" alt="hero image">
         </div>
     </div>
+
 
     <div class="company-logos w-full overflow-hidden">
         <div class="group/slider flex flex-nowrap w-max items-center">

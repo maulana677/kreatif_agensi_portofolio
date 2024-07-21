@@ -1,4 +1,4 @@
-@extends('frontend.layouts.master')
+{{--  @extends('frontend.layouts.master')
 
 @section('title', 'About Me')
 
@@ -26,7 +26,40 @@
         </div>
     </section>
 
-    {{--  foooter start  --}}
     @include('frontend.section.footer')
-    {{--  footer end  --}}
+@endsection  --}}
+
+@extends('frontend.layouts.master')
+
+@section('title', 'About Me')
+
+@section('content')
+    @include('frontend.section.navbar')
+    <section id="About"
+        class="flex flex-col gap-10 lg:gap-20 bg-portto-black text-white relative py-10 lg:py-20 mt-10 lg:mt-20">
+        <div class="container mx-auto max-w-screen-xl px-6 py-12 lg:py-24">
+            <div class="flex flex-col lg:flex-row items-center lg:gap-12">
+                <!-- Text Section -->
+                <div class="lg:w-1/2 flex flex-col items-start gap-6 mb-10 lg:mb-0">
+                    <h1 class="text-4xl lg:text-5xl font-extrabold text-white">{{ $about->title }}</h1>
+                    <p class="text-lg lg:text-xl text-gray-700 leading-relaxed">{!! $about->description !!}</p>
+                    <a href="{{ route('resume.download') }}"
+                        class="inline-flex items-center px-6 py-3 text-lg font-bold text-white bg-portto-purple rounded-full hover:bg-portto-dark-purple transition-colors duration-300">
+                        <span class="mr-2">Download Resume</span>
+                        <i class="fal fa-download"></i>
+                    </a>
+                </div>
+
+                <!-- Image Section -->
+                <div class="lg:w-1/2 flex justify-center lg:justify-end">
+                    <img src="{{ asset($about->image) }}" class="w-full h-auto max-w-md rounded-lg shadow-lg"
+                        alt="About Me">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {{-- Footer Start --}}
+    @include('frontend.section.footer')
+    {{-- Footer End --}}
 @endsection
