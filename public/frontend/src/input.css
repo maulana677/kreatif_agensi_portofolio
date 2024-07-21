@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
-    .pause-animate{
+@layer base {
+    .pause-animate {
         animation-play-state: paused;
     }
 
@@ -12,5 +12,5 @@
         overflow: hidden;
         transition: max-height 300ms ease-in-out;
     }
-    
+
 }

@@ -3,7 +3,7 @@
 @section('title', 'Services')
 
 @section('content')
-    <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
+    {{--  <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
         @include('frontend.section.navbar')
         <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[50px] flex justify-between items-center relative">
             <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
@@ -34,6 +34,33 @@
                     </div>
                 @endforeach
             </div>
+        </div>
+    </section>  --}}
+
+    @include('frontend.section.navbar')
+    <section id="Header" class="flex flex-col gap-20 bg-portto-black text-white relative py-20">
+        <div class="container max-w-5xl mx-auto flex flex-col items-center text-center">
+            <h1 class="text-5xl font-extrabold">{{ $serviceSetting->title }}</h1>
+            <p class="mt-4 text-xl">{{ $serviceSetting->sub_title }}</p>
+        </div>
+    </section>
+
+    <section id="Services" class="container max-w-5xl mx-auto pt-20 pb-20">
+        <h2 class="text-4xl font-extrabold text-center mb-10">All Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+            @foreach ($service as $services)
+                <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-portto-purple rounded-full flex items-center justify-center mb-6">
+                        <img src="{{ asset($services->icon) }}" class="w-10 h-10" alt="Service Icon">
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">{{ $services->title }}</h3>
+                    <p class="text-gray-600 mb-4">{{ $services->sub_title }}</p>
+                    <div class="w-full h-48">
+                        <img src="{{ asset($services->image) }}" class="w-full h-full object-cover rounded-lg"
+                            alt="Service Image">
+                    </div>
+                </div>
+            @endforeach
         </div>
     </section>
 
