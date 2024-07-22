@@ -3,44 +3,42 @@
 @section('title', 'Testimonial')
 
 @section('content')
-    <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative">
-        @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto pt-[130px] pb-[50px] flex justify-between items-center relative">
-            <div class="flex flex-col gap-[50px] h-fit w-fit text-white z-10 mb-16">
-                <h1 class="font-extrabold text-[80px] leading-[10px]">{{ $testimonialsSectionTitle->title }}</h1>
-                <p class="mb-5">{{ $testimonialsSectionTitle->sub_title }}</p>
+    <main class="flex-grow">
+        <section id="Header" class="bg-portto-black text-white relative py-20 mt-8">
+            @include('frontend.section.navbar')
+            <div class="container mx-auto max-w-7xl px-4 lg:px-8 py-16">
+                <div class="text-center">
+                    <h1 class="text-4xl lg:text-5xl font-extrabold mb-4">{{ $testimonialsSectionTitle->title }}</h1>
+                    <p class="text-lg lg:text-xl">{{ $testimonialsSectionTitle->sub_title }}</p>
+                </div>
             </div>
-            {{--  <div class="flex max-w-[471px] max-h-[567px] z-10">
-                <img src="{{ asset('frontend/assets/images/hero-image.png') }}" class="w-full h-full object-contain"
-                    alt="hero image">
-            </div>  --}}
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <section id="Testimonials" class="bg-[#F4F5F8]">
-        <div class="container max-w-[1130px] mx-auto pt-[100px] pb-[100px]">
-            <h2 class="font-extrabold text-[50px] leading-[70px] text-center">All My Clients</h2>
-            <div class="grid grid-cols-2 gap-[30px] mt-[50px]">
+    <section id="Testimonials" class="bg-gray-100 py-16">
+        <div class="container mx-auto max-w-7xl px-4 lg:px-8">
+            <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-12">What Our Clients Say</h2>
+            <div class="flex flex-wrap justify-center gap-8">
                 @foreach ($testimonials as $testimonial)
-                    <div class="card-testi bg-white rounded-[30px] flex flex-col p-5 gap-5">
-                        <div class="h-[40px] flex shrink-0">
-                            <img src="{{ asset($testimonial->logo) }}" alt="logo">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center max-w-xs">
+                        <div class="mb-4">
+                            <img src="{{ asset($testimonial->logo) }}" alt="logo" class="w-20 h-20 object-contain">
                         </div>
-                        <p class="font-semibold text-[22px] leading-[40px]">{{ $testimonial->testimonial_text }}</p>
-                        <div class="flex h-8">
+                        <p class="text-lg font-semibold text-center mb-4">{{ $testimonial->testimonial_text }}</p>
+                        <div class="flex mb-4">
                             @for ($i = 1; $i <= 5; $i++)
-                                @if ($i <= $testimonial->rating)
-                                    <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star">
-                                @endif
+                                <img src="{{ asset('frontend/assets/images/icons/Star.svg') }}" alt="star"
+                                    class="{{ $i <= $testimonial->rating ? 'text-yellow-500' : 'text-gray-300' }}">
                             @endfor
                         </div>
-                        <div class="flex items-center gap-4">
-                            <div class="w-[70px] h-[70px] shrink-0">
-                                <img src="{{ asset($testimonial->avatar) }}" alt="photo">
+                        <div class="flex items-center space-x-4">
+                            <div class="w-16 h-16 rounded-full overflow-hidden">
+                                <img src="{{ asset($testimonial->avatar) }}" alt="photo"
+                                    class="w-full h-full object-cover">
                             </div>
-                            <div class="flex flex-col gap-[2px]">
-                                <p class="font-bold text-xl leading-[30px]">{{ $testimonial->name }}</p>
-                                <p class="text-lg text-[#878C9C]">{{ $testimonial->job_title }}</p>
+                            <div class="text-center">
+                                <p class="font-bold text-lg">{{ $testimonial->name }}</p>
+                                <p class="text-gray-600 text-sm">{{ $testimonial->job_title }}</p>
                             </div>
                         </div>
                     </div>
@@ -49,8 +47,7 @@
         </div>
     </section>
 
-
-    {{--  foooter start  --}}
+    {{-- Footer Start --}}
     @include('frontend.section.footer')
-    {{--  footer end  --}}
+    {{-- Footer End --}}
 @endsection
