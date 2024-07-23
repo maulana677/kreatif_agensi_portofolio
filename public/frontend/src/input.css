@@ -14,3 +14,10 @@
     }
 
 }
+
+/* Tambahkan kelas berikut untuk menyembunyikan tombol cancel pada tampilan desktop */
+@media (min-width: 1024px) {
+    #cancel-button {
+        display: none;
+    }
+}

@@ -5,7 +5,7 @@
 @section('content')
     <section id="Header" class="flex flex-col gap-[100px] bg-portto-black relative max-h-[665px] mb-[493px]">
         @include('frontend.section.navbar')
-        <div class="hero container max-w-[1130px] mx-auto flex flex-col justify-center items-center relative">
+        <div class="hero container max-w-[1130px] mx-auto flex flex-col justify-center items-center relative mt-20 lg:mt-40">
             <h1 class="font-extrabold text-[50px] leading-[70px] text-white text-center z-10">{{ $project->name }}</h1>
             <p class="text-xl leading-[30px] text-white z-10">{{ $project->projectCategory->name }}</p>
             <div class="flex shrink-0 w-full h-[800px] rounded-[50px] overflow-hidden bg-white mt-[70px] z-10">
@@ -16,6 +16,7 @@
                 alt="background icon">
         </div>
     </section>
+
 
     <section id="Details" class="container max-w-[1130px] mx-auto pt-[50px]">
         <div class="flex gap-[50px] justify-between">
