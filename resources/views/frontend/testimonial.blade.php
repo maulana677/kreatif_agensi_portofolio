@@ -15,12 +15,14 @@
         </section>
     </main>
 
-    <section id="Testimonials" class="bg-gray-100 py-16">
+    <section id="Testimonials" class="container max-w-5xl mx-auto pt-20 pb-20 relative min-h-screen">
         <div class="container mx-auto max-w-7xl px-4 lg:px-8">
             <h2 class="text-3xl lg:text-4xl font-extrabold text-center mb-12">What Our Clients Say</h2>
-            <div class="flex flex-wrap justify-center gap-8">
+
+            <!-- Grid for Testimonials -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
                 @foreach ($testimonials as $testimonial)
-                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center max-w-xs">
+                    <div class="bg-white rounded-lg shadow-lg p-6 flex flex-col items-center max-w-xs mx-auto">
                         <div class="mb-4">
                             <img src="{{ asset($testimonial->logo) }}" alt="logo" class="w-20 h-20 object-contain">
                         </div>

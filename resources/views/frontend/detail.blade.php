@@ -17,7 +17,6 @@
         </div>
     </section>
 
-
     <section id="Details" class="container max-w-[1130px] mx-auto pt-[50px]">
         <div class="flex gap-[50px] justify-between">
             <div class="flex flex-col gap-5">
